@@ -1,0 +1,2 @@
+class FavoriteImage < ApplicationRecord
+end
