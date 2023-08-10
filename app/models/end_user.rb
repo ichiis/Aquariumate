@@ -13,6 +13,7 @@ class EndUser < ApplicationRecord
   has_one_attached :profile_image
   
   validates :name, presence: true
+  validates :email, uniqueness: true
   
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |end_user|

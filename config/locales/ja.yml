@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+    attributes:
+      end_user:
+        name: ユーザー名
+        profile_image: プロフィール画像
+      post:
+       title: タイトル
+       body: 本文
+      post_image:
+         image: 画像
