@@ -32,4 +32,8 @@ Rails.application.routes.draw do
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     get 'search'=> 'searches#search'
   end
+  #ゲストログイン用パス
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 end

@@ -13,4 +13,12 @@ class EndUser < ApplicationRecord
   has_one_attached :profile_image
   
   validates :name, presence: true
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |end_user|
+      end_user.password = SecureRandom.urlsafe_base64
+      end_user.name="ゲスト"
+      end_user.is_deleted="false"
+    end
+  end
 end
