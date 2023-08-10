@@ -1,0 +1,62 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <!--ロゴ--> 
+ <div>
+   <a  href="/" class="navbar-brand  border p-2 border-dark text-center" style="width:150px"><b>Aquariumate</b></a>
+ </div>
+ <!--ようこそ-->
+ <% if end_user_signed_in? %>
+ <div class="mx-auto col-4">
+   <p class="my-auto text-right">ようこそ、<%= end_user.name %>さん！</p>
+ </div>
+ <% else %>
+ <div class="mx-auto col-6"> </div>
+ <% end %>
+ <!--リンク＆サーチエリア-->
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+ </button>
+ <div class="block">
+   <div class="collapse navbar-collapse row" id="navbarNavDropdown">
+     <ul class="navbar-nav header-button">
+       <% if request.fullpath.include? "/admin" %>
+         <!-- adminがログイン時のヘッダー -->
+         <% if admin_signed_in? %>
+           <!--<li class="nav-item"><= link_to "投稿一覧", admin_items_path, class: "btn btn-sm btn-outline-dark" %></li>-->
+           <!--<li class="nav-item"><= link_to "ユーザー一覧", admin_end_users_path, class: "btn btn-sm btn-outline-dark" %></li>-->
+           <!--<li class="nav-item"><= link_to "ジャンル一覧", admin_tags_path, class: "btn btn-sm btn-outline-dark" %></li>-->
+           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %></li>
+         <!-- adminがログアウト時のヘッダー　-->
+         <% else %>
+           <li class="nav-item"><%= link_to "ログイン", new_admin_session_path, class: "btn btn-sm btn-outline-dark" %></li>
+         <% end %>
+       <% else %>
+         <!-- end_userログイン時のヘッダー　-->
+         <% if end_user_signed_in? %>
+           <!--<li class="nav-item"><= link_to "マイページ", end_user_path(current_end_user.id), class: "btn btn-sm btn-outline-dark" %></li>-->
+           <!--<li class="nav-item"><= link_to "投稿一覧", posts_path, class: "btn btn-sm btn-outline-dark" %></li>-->
+           <!--<li class="nav-item"><= link_to "投稿画像", post_images_path, class: "btn btn-sm btn-outline-dark" %></li>-->
+           <li class="nav-item"><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "btn btn-sm btn-outline-dark" %></li>
+         <!-- end_userログアウト時のヘッダー　-->
+         <% else %>
+           <li class="nav-item"><%= link_to "新規登録", new_end_user_registration_path, class: "btn btn-sm btn-outline-dark" %></li>
+           <li class="nav-item"><%= link_to "ログイン", new_end_user_session_path, class: "btn btn-sm btn-outline-dark" %></li>
+         <% end %>
+       <% end %>
+     </ul>
+   </div>
+<!--search-ara-->
+   <!--<div class="row mt-2 justify-content-end" style="padding-right:70px">-->
+   <!--< if admin_signed_in? %>-->
+   <!--    <= form_with url: admin_search_path,method: :get, local: true do |f| %>-->
+   <!--      <= f.text_field :word,placeholder:"Search"%>-->
+   <!--      <= f.submit'検索'%>-->
+   <!--    < end %>-->
+   <!--< else %> -->
+   <!--  <= form_with url: search_path,method: :get, local: true do |f| %>-->
+   <!--   <= f.text_field :word,placeholder:"Search"%>-->
+   <!--   <= f.submit'検索'%>-->
+   <!--  < end %>-->
+   <!--< end %> -->
+   <!--</div>-->
+  </div>
+ <nav>

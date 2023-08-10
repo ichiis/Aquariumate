@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+header{
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+/*ログイン画面・新規登録画面*/
+.sign_up-form, .log_in-form{
+  width:300px;
+}

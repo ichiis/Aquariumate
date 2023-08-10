@@ -12,6 +12,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header><%= render 'layouts/header', end_user: current_end_user %></header>
+
+    <main><%= yield %></main>
+
+    <footer></footer>
   </body>
 </html>
