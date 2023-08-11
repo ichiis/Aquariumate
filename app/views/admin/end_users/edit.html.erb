@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <h4 class="bg-light d-inline-block mb-4 text-center"><b><%= @end_user.name %></h4>
+    <%= render 'admin/shared/error_messages', resource: @end_user %>
+      <table class="table table-borderless">
+      <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
+        <tr>
+          <td>ユーザーID</td>
+          <td><%= @end_user.id %></td>
+        </tr>
+        <tr>
+          <td><%= f.label "ユーザー名" %></td>
+          <td><%= f.text_field :name, autoforcus: true, autocomplete: "name" %>　</td>
+           </tr>
+        <tr>
+          <td><%= f.label "イントロダクション" %></td>
+          <td><%= f.text_field :introduction, autoforcus: true, autocomplete: "introduction" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label "メールアドレス" %></td>
+          <td><%= f.text_field :email, autoforcus: true, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label "会員ステータス" %></td>
+          <td>
+            <span>
+              <%= f.radio_button :is_deleted, false, checked: @end_user.is_deleted == false %>
+              <%= f.label :is_deleted, '有効' %>
+            </span>
+            <span class="pl-4">
+              <%= f.radio_button :is_deleted, true, checked: @end_user.is_deleted == true %>
+              <%= f.label :is_deleted, '退会' %>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <div><%= f.submit "更新する", class: "btn btn-success" %></div>
+      <% end %>
+  </div>
+</div>

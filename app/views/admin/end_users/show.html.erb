@@ -1,0 +1,33 @@
+<%= flash[:notice] %>
+<div class="container">
+  <div>
+    <h4 class=class="mb-4 text-center"><%= @end_user.name %>さんのユーザー詳細</h4>
+      <table class="table table-bordered col-8">
+        <tr>
+          <td class="col-4">会員ID</td>
+        　<td><%= @end_user.id %></td>
+        </tr>
+        <tr>
+          <td>ユーザー名</td>
+          <td><%= @end_user.name %></td>
+        </tr>
+        <tr>
+          <td>イントロダクション</td>
+          <td><%= @end_user.introduction %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @end_user.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td class="<%= @end_user.is_deleted ? 'text-secondary' : 'text-success' %>"><%= @end_user.is_deleted ? '退会済み' : '有効' %></td>
+        </tr>
+      </table>
+       
+      <div>
+        <%= link_to "編集", edit_admin_end_user_path(params[:id]), class: "btn btn-success" %> 
+        <!--<= link_to "注文履歴一覧を見る", admin_top_path, class: "btn btn-primary" %>-->
+      </div>
+  </div>
+</div>

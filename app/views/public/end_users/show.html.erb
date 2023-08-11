@@ -3,8 +3,28 @@
   <div class='row'>
     <!--end_user_information-->
     <div class='col-md-3'>
-      <h2>User info</h2>
-      <%= render 'layouts/end_user_show', end_user: @end_user %>
+      <h2>ユーザー情報</h2>
+      <table class='table'>
+        <tr><%= image_tag end_user.get_profile_image, size:'100x100' %></tr>
+        <tr>
+          <th>name</th>
+          <th><%= end_user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= end_user.introduction %></th>
+        </tr>
+      </table>
+      <!--ユーザー情報編集ボタンの表示条件-->
+      <div class='row'>
+        <% if current_end_user == end_user %>
+          <% if end_user.email != "guest@example.com" %>
+            <%= link_to edit_end_user_path(end_user), class: "btn btn-outline-secondary btn-block edit_user_#{end_user.id}" do %>
+            <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <!--end_user's_post_index-->
     <div class='col-md-8 offset-md-1'>
