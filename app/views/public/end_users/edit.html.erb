@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>ユーザー情報編集</h2>
+    <%= form_with model: @end_user, local:true do |f| %>
+      <%= render 'public/shared/error_messages', resource: @end_user %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control name" %>
+      </div>
+     <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :profile_image, class: "form-control-file end_user_image", accept: 'image/*' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email, class: "form-control email" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-success' %><%= link_to "退会する", end_users_confirm_withdraw_path, class:"btn btn-danger offset-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>

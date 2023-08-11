@@ -1,0 +1,15 @@
+<%= flash[:notice] %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <!--end_user_information-->
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'layouts/end_user_show', end_user: @end_user %>
+    </div>
+    <!--end_user's_post_index-->
+    <div class='col-md-8 offset-md-1'>
+      <h2>Posts</h2>
+      <!--<= render 'latouts/_post_index',posts: @posts %>-->
+    </div>
+  </div>
+</div>

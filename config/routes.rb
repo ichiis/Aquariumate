@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   end
   #end_user用パス
   scope module: :public do
-    resources :end_users
     resources :posts
     resources :post_images
     resources :comments
@@ -30,6 +29,8 @@ Rails.application.routes.draw do
     resources :favorite_post_images
     resources :favorite_post_and_tags
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
+    patch  'end_users/withdraw' => 'end_users#withdraw'
+    resources :end_users
     get 'search'=> 'searches#search'
   end
   #ゲストログイン用パス
