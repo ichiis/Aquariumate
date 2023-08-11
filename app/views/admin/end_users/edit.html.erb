@@ -2,10 +2,10 @@
   <div>
     <h4 class="bg-light d-inline-block mb-4 text-center"><b><%= @end_user.name %></h4>
     <%= render 'admin/shared/error_messages', resource: @end_user %>
-      <table class="table table-borderless">
+      <table class="table table-borderless col-8">
       <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
         <tr>
-          <td>ユーザーID</td>
+          <td class="col-4">ユーザーID</td>
           <td><%= @end_user.id %></td>
         </tr>
         <tr>
