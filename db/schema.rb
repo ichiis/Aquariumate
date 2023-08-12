@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2023_08_11_064041) do
 
   create_table "favorite_images", force: :cascade do |t|
     t.integer "end_user_id", null: false
-    t.integer "post_image_id", null: false
+    t.integer "attachment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
