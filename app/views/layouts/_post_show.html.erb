@@ -13,6 +13,15 @@
     <td><%= @post.title %></td>
   </tr>
   <tr>
+    <td>タグ</td>
+    <td>
+      <% @post_and_tags.each do |tag| %>
+      <i class="fa-sharp fa-solid fa-tag"></i>
+      <%= tag.tag_name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
     <td>本文</td>
     <td><%= @post.body %></td>
   </tr>
