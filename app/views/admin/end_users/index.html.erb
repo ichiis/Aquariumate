@@ -19,7 +19,8 @@
             <td class= "<%= end_user.is_deleted ? 'text-secondary' : 'text-success' %>"><%= end_user.is_deleted ? '退会済み' : '有効' %></td>
           </tr>
           <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+      <%= paginate @end_users %>
   </div>
 </div>

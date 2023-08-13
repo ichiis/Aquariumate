@@ -32,3 +32,7 @@ header{
  .next,.last{
    margin-left:5px;
  }
+ 
+ .post_edit_form{
+   flex-wrap:wrap;
+ }

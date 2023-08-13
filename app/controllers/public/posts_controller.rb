@@ -23,7 +23,6 @@ class Public::PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(',')
 
     if @post.save
-    # 保存された投稿に紐づく画像を保存
       @post.save_tags(tag_list)
       redirect_to post_path(@post), notice: "投稿が成功しました"
     else

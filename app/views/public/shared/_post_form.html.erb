@@ -17,8 +17,8 @@
     <%= f.label :画像 %>
     <%= f.file_field :images, multiple: true, accept: "image/*" %>
     <% if post.images.attached? %>
-    <p>選択済みの画像（削除する画像にチェックをつけてください）</p>
-    <div class="d-flex" style="flex-wrap:wrap;">
+    <p>削除する画像にチェックをつけてください</p>
+    <div class="d-flex post_edit_form">
     <% @post.images.each do |image| %>
       <div>
         <%= f.check_box :image_ids, { multiple: true }, image.id, false %>
