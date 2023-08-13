@@ -1,0 +1,19 @@
+<table class='table'>
+  <tr>
+    <td>ユーザー</td>
+    <td>
+      <%= link_to(@post.end_user) do %>
+        <%= image_tag @post.end_user.get_profile_image, size:"100x100" %><br>
+        <%= @post.end_user.name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>タイトル</td>
+    <td><%= @post.title %></td>
+  </tr>
+  <tr>
+    <td>本文</td>
+    <td><%= @post.body %></td>
+  </tr>
+</table>

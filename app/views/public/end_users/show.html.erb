@@ -5,21 +5,21 @@
     <div class='col-md-3'>
       <h2>ユーザー情報</h2>
       <table class='table'>
-        <tr><%= image_tag end_user.get_profile_image, size:'100x100' %></tr>
+        <tr><%= image_tag @end_user.get_profile_image, size:'100x100' %></tr>
         <tr>
           <th>name</th>
-          <th><%= end_user.name %></th>
+          <th><%= @end_user.name %></th>
         </tr>
         <tr>
           <th>introduction</th>
-          <th><%= end_user.introduction %></th>
+          <th><%= @end_user.introduction %></th>
         </tr>
       </table>
       <!--ユーザー情報編集ボタンの表示条件-->
       <div class='row'>
-        <% if current_end_user == end_user %>
-          <% if end_user.email != "guest@example.com" %>
-            <%= link_to edit_end_user_path(end_user), class: "btn btn-outline-secondary btn-block edit_user_#{end_user.id}" do %>
+        <% if current_end_user == @end_user %>
+          <% if @end_user.email != "guest@example.com" %>
+            <%= link_to edit_end_user_path(@end_user), class: "btn btn-outline-secondary btn-block edit_user_#{@end_user.id}" do %>
             <i class="fas fa-user-cog"></i>
             <% end %>
           <% end %>
@@ -29,7 +29,7 @@
     <!--end_user's_post_index-->
     <div class='col-md-8 offset-md-1'>
       <h2>Posts</h2>
-      <!--<= render 'latouts/_post_index',posts: @posts %>-->
+      <%= render 'layouts/post_index',posts: @posts %>
     </div>
   </div>
 </div>
