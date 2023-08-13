@@ -5,7 +5,11 @@ class Post < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :post_and_tags,dependent: :destroy
   has_many :tags, through: :post_and_tags
-  
+
+  has_many_attached :images
+
+  accepts_nested_attributes_for :post_images, allow_destroy: true, reject_if: :all_blank
+
   with_options presence: true do
      validates :end_user_id
      validates :title
@@ -13,7 +17,7 @@ class Post < ApplicationRecord
   end
   validates :title,length:{maximum:50}
   validates :body,length:{maximum:300}
-  
+
   #タグの保存
   def save_tags(tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

@@ -4,6 +4,6 @@ class FavoriteImage < ApplicationRecord
   
   with_options presence: true do
      validates :end_user_id
-     validates :post_image_id
+     validates :attachments_id
   end
 end

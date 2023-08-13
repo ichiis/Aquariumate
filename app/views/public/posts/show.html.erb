@@ -8,4 +8,15 @@
       <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
     <% end %>
   </div>
+  <!--images-->
+  <div>
+    <p><strong>画像</strong></p>
+    <% if @post.images.attached? %>
+      <% @post.images.each do |image| %>
+        <%= link_to root_path(good: image.id) do %>
+          <%= image_tag image, size:'300x300' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
