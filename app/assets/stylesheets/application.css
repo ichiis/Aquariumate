@@ -22,3 +22,13 @@ header{
 .sign_up-form, .log_in-form{
   width:300px;
 }
+/*ページネーションバー*/
+.first, .prev{
+   margin-right: 5px;
+ }
+ .page{
+   margin:0 8px;
+ }
+ .next,.last{
+   margin-left:5px;
+ }

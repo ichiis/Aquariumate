@@ -4,7 +4,6 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # @post.build_post_image
   end
 
   def show
@@ -15,7 +14,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
   end
 
   def create
@@ -38,6 +37,13 @@ class Public::PostsController < ApplicationController
   end
 
   def update
+    # #添付画像を個別に削除
+    if params[:post][:image_ids]
+      params[:post][:image_ids].each do |image_id|
+        image = @post.images.find(image_id)
+        image.purge
+      end
+    end
     tag_list=params[:post][:tag_name].split(',')
     if @post.update(post_params)
       @post.save_tags(tag_list)
