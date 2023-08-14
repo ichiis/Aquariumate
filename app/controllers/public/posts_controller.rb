@@ -15,6 +15,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).per(10)
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
   end
 
   def create
@@ -24,7 +25,7 @@ class Public::PostsController < ApplicationController
 
     if @post.save
       @post.save_tags(tag_list)
-      redirect_to post_path(@post), notice: "投稿が成功しました"
+      redirect_to post_path(@post), alert: "投稿が成功しました"
     else
       @post = Post.new
       render 'new'
@@ -46,7 +47,7 @@ class Public::PostsController < ApplicationController
     tag_list=params[:post][:tag_name].split(',')
     if @post.update(post_params)
       @post.save_tags(tag_list)
-      redirect_to post_path(@post), notice: "投稿を更新しました"
+      redirect_to post_path(@post), alert: "投稿を更新しました"
     else
       render "edit"
     end
