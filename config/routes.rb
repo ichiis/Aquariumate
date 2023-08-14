@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   #admin用パス
   namespace :admin do
     resources :end_users, only: [:show, :index, :edit, :update]
-    resources :posts, only: [:show, :index, :destroy]
+    resources :posts, only: [:show, :index, :destroy] do
+      resources :comments, only: [:destroy]
+    end
     resources :post_images, only: [:show, :index, :destroy]
-    resources :comments, only: [:show, :index, :destroy]
     resources :tags, only: [:index, :destroy]
     get 'search'=> 'searches#search'
   end

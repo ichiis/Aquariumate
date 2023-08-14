@@ -5,8 +5,12 @@ class Public::CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = current_end_user.comments.new(comment_params)
     comment.post_id = post.id
-    comment.save
-    redirect_to request.referer
+    if comment.save
+      redirect_to request.referer
+    else
+      flash[:alert] = 'コメントを入力してください。（コメントは200文字以内です。）'
+      redirect_to request.referer
+    end
   end
 
   def destroy

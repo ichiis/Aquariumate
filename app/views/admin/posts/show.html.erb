@@ -21,7 +21,7 @@
             <td><%= @post.body %></td>
           </tr>
         </table>
-        
+
         <%= link_to "削除", admin_post_path(@post), data: { confirm: '本当に削除しますか？' }, class:"btn btn-sm btn-danger", method: :delete %>
     </div>
     <!--images-->
@@ -29,11 +29,14 @@
       <h2 class="mt-3">投稿画像</h2>
       <% if @post.images.attached? %>
         <% @post.images.each do |image| %>
-          <%= link_to root_path(good: image.id) do %>
-            <%= image_tag image, size:'180x120' %>
-          <% end %>
+          <%= image_tag image, size:'180x120' %>
         <% end %>
       <% end %>
     </div>
+  </div>
+  <!--コメント一覧-->
+  <div class="col-10 mx-auto mt-3">
+    <h4>コメント一覧</h4>
+    <%= render 'comment', post: @post, comment: @comment %>
   </div>
 </div>
