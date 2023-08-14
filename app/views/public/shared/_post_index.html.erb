@@ -6,6 +6,7 @@
       <th>タイトル</th>
       <th>タグ</th>
       <th>画像</th>
+      <th>コメント</th>
     </tr>
   </thead>
   <tbody class="text-center">
@@ -24,6 +25,7 @@
         <% end %>
       </td>
       <td><%= post.images.attached? ? post.images.count : 0 %>枚</td>
+      <td><%= post.comments.count %>件</td>
     </tr>
     <% end %>
   </tbody>

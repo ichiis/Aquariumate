@@ -2,17 +2,17 @@
   <tbody>
     <% post.comments.each do |comment| %>
     <tr>
-      <td>
+      <td class="col-1">
         <%= link_to admin_end_user_path(comment.end_user) do %>
           <%= image_tag comment.end_user.get_profile_image, size: "50x50" %><br>
           <%= comment.end_user.name %>
         <% end %>
       </td>
-      <td class="comment_cell pl-3">
+      <td class="comment_cell pl-3 col-5">
         <span class="comment_created"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span></br>
         <span class="comment_width"><%= comment.comment %></span>
       </td>
-      <td class="pl-3">
+      <td class="pl-3 col-1">
         <%= link_to admin_post_comment_path(comment.post, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>

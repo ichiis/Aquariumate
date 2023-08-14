@@ -40,6 +40,7 @@ header{
  .comment_created{
     font-size: 12px;
  }
+ /*コメントの表示欄*/
 .comment_cell{
     vertical-align: top;
     word-break: break-word;

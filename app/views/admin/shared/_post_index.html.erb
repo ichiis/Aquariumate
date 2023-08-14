@@ -1,11 +1,12 @@
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
-      <th class="text-center">投稿id</th>
-      <th class="text-center">投稿日時</th>
-      <th>ユーザー</th>
-      <th>タイトル</th>
-      <th>本文</th>
+      <th class="text-center col-1">投稿id</th>
+      <th class="text-center col-1">投稿日時</th>
+      <th class="col-2">ユーザー</th>
+      <th class="col-2">タイトル</th>
+      <th class="col-4">本文</th>
+      <th class="col-2">コメント</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
         <% end %>
       </td>
       <td><%= post.body %></td>
+      <td><%= post.comments.count %>件</td>
     </tr>
     <% end %>
   </tbody>
