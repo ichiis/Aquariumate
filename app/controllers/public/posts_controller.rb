@@ -11,6 +11,7 @@ class Public::PostsController < ApplicationController
     @tag_list = @post.tags.pluck(:tag_name).join(',')
     @post_and_tags = @post.tags
     @post_images = @post.post_images
+    @comment = Comment.new
   end
 
   def index

@@ -1,0 +1,34 @@
+<div class="row mt-3">
+<!--コメントフォーム-->
+  <div class="col-xs-10 col-sm-5 mx-auto">
+    <h4>コメントフォーム</h4>
+    <%= form_with model: [post, comment], local: true do |f| %>
+      <%= f.text_area :comment, rows:'3',placeholder: "コメント", class:"w-100" %></br>
+      <%= f.submit "送信" %>
+    <% end %>
+  </div>
+<!--コメント一覧-->
+  <div class="col-xs-10 col-sm-5 mx-auto">
+    <h4>コメント一覧</h4>
+    <table class="comment_index">
+      <tbody>
+        <% post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= link_to end_user_path(comment.end_user) do %>
+                <%= image_tag comment.end_user.get_profile_image, size: "50x50" %><br>
+              <%= comment.end_user.name %>
+            <% end %>
+          </td>
+          <td><%= comment.comment %></td>
+          <td>
+            <% if comment.end_user == current_end_user %>
+              <%#= link_to "Destroy", comments_path(post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

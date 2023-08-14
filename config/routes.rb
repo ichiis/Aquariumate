@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   end
   #end_user用パス
   scope module: :public do
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+    end
     resources :post_images
-    resources :comments
     resources :tags
     resources :favorite_posts
     resources :favorite_post_images
