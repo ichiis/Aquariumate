@@ -22,5 +22,6 @@
       <% end %>
     </div>
   </div>
+  <%= render 'public/shared/error_messages', resource: @comment %>
   <%= render 'comment', post: @post, comment: @comment %>
 </div>

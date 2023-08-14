@@ -36,3 +36,11 @@ header{
  .post_edit_form{
    flex-wrap:wrap;
  }
+ /*コメントの投稿日時*/
+ .comment_created{
+    font-size: 12px;
+ }
+.comment_cell{
+    vertical-align: top;
+    word-break: break-word;
+}
