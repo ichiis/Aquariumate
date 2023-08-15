@@ -32,7 +32,11 @@ Rails.application.routes.draw do
     resources :post_and_tags
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
-    resources :end_users
+    resources :end_users do
+      member do
+        get :favorite_posts
+      end
+    end
     get 'search'=> 'searches#search'
   end
   #ゲストログイン用パス

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :post_and_tags,dependent: :destroy
   has_many :tags, through: :post_and_tags
+  has_many :post_favorited_end_users, through: :favorite_posts, source: :end_user
 
   has_many_attached :images
   validate :images_length

@@ -2,7 +2,7 @@ class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   before_action :ensure_correct_end_user, only: [:edit, :update]
   before_action :ensure_guest_user, only: [:edit]
-  
+
   def show
     @end_user = EndUser.find(params[:id])
     @posts = @end_user.posts.page(params[:page]).per(10)
@@ -30,6 +30,12 @@ class Public::EndUsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  def favorite_posts
+    @end_user = EndUser.find(params[:id])
+    favorite_posts= FavoritePost.where(end_user_id: @end_user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorite_posts)
+  end
 
   private
 
@@ -49,6 +55,5 @@ class Public::EndUsersController < ApplicationController
     if @end_user.email == "guest@example.com"
       redirect_to end_user_path(current_end_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
     end
-  end  
-
+  end 
 end
