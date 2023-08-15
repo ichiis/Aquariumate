@@ -16,20 +16,20 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :index, :destroy] do
       resources :comments, only: [:destroy]
     end
-    resources :post_images, only: [:show, :index, :destroy]
+    #resources :post_images, only: [:show, :index, :destroy]
     resources :tags, only: [:index, :destroy]
     get 'search'=> 'searches#search'
   end
   #end_user用パス
   scope module: :public do
     resources :posts do
+      resource :favorite_posts, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :post_images
+    #resources :post_images
     resources :tags
-    resources :favorite_posts
-    resources :favorite_post_images
-    resources :favorite_post_and_tags
+    #resources :favorite_post_images
+    resources :post_and_tags
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
     resources :end_users

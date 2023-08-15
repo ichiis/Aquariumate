@@ -2,7 +2,11 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class="col-xs-10 col-sm-5 mx-auto">
-      <h2 class="mt-3">投稿詳細</h2>
+      <div class="d-flex">
+        <h2 class="mt-3">投稿詳細</h2>
+        <!--いいねボタン-->
+        <p class="pl-5  mt-4"><b><%= render "post_favorite", post: @post %></b></p>
+      </div>
       <%= render 'public/shared/post_show', post: @post %>
       <% if @post.end_user == current_end_user %>
         <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>

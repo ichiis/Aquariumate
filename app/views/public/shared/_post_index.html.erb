@@ -1,31 +1,32 @@
-<table class='table table-hover table-inverse'>
+<table class='table table-inverse'>
   <thead>
-    <tr class="text-center">
-      <th>投稿日時</th>
-      <th>ユーザー</th>
-      <th>タイトル</th>
-      <th>タグ</th>
-      <th>画像</th>
-      <th>コメント</th>
+    <tr>
+      <td class="text-center">投稿者</td>
+      <td>投稿内容</td>
     </tr>
   </thead>
-  <tbody class="text-center">
+  <tbody>
     <% posts.each do |post| %>
     <tr>
-      <td><%= post.created_at.strftime('%Y/%m/%d') %></br><%= post.created_at.strftime('%H:%M') %></td>
-      <td><%= link_to(post.end_user) do %>
-        <%= image_tag post.end_user.get_profile_image, size:'50x50' %>
-         <% end %>
-      </td>
-      <td><%= link_to post.title,post, class: "post_#{post.id}" %></td>
-      <td>
-        <% post.tags.each do |tag| %>
-          <i class="fa-sharp fa-solid fa-tag"></i>
-          <%= tag.tag_name %>
+      <td class="text-center col-3">
+        <%= link_to(post.end_user) do %>
+          <%= image_tag post.end_user.get_profile_image, size:'50x50' %>
+          <p class="mt-3"><%= post.end_user.name %></p>
         <% end %>
       </td>
-      <td><%= post.images.attached? ? post.images.count : 0 %>枚</td>
-      <td><%= post.comments.count %>件</td>
+      <td class="py-0 col-7">
+        <p><sm><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></sm></p>
+        <p><%= link_to post.title,post, class: "post_#{post.id}" %></p>
+          <!--タグ-->
+        <span><% post.tags.each do |tag| %></span>
+                <i class="fa-sharp fa-solid fa-tag"></i>
+                <%= tag.tag_name %>
+              <% end %></br>
+        <p><sm><%= post.comments.count %>コメント, 
+               <%= post.favorite_posts.count %> いいね, 
+               画像 <%= post.images.attached? ? post.images.count : 0 %> 枚
+        </sm></p>
+      </td>
     </tr>
     <% end %>
   </tbody>
