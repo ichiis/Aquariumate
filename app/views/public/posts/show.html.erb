@@ -29,6 +29,9 @@
     </div>
   </div>
   <!--コメントエリア-->
+  <div id="comments_error">
+    <%= render 'public/shared/error_messages', resource: @comment %>
+  </div>
   <div class="mt-3">
     <%= flash[:alert] %>
   </div>
