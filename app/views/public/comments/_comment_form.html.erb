@@ -1,0 +1,6 @@
+<!--コメントフォーム-->
+  <h4>コメントフォーム</h4>
+    <%= form_with model: [post, comment], local: false do |f| %>
+      <%= f.text_area :comment, rows:'5',placeholder: "コメント(200文字以内)", class:"w-100" %></br>
+      <%= f.submit "送信" %>
+    <% end %>

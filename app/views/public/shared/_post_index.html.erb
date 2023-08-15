@@ -22,7 +22,7 @@
                 <i class="fa-sharp fa-solid fa-tag"></i>
                 <%= tag.tag_name %>
               <% end %></br>
-        <p><sm><%= post.comments.count %>コメント, 
+        <p><sm><span id="comment_count"><%= post.comments.count %></span>コメント, 
                <%= post.favorite_posts.count %> いいね, 
                画像 <%= post.images.attached? ? post.images.count : 0 %> 枚
         </sm></p>
