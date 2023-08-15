@@ -5,7 +5,9 @@
       <div class="d-flex">
         <h2 class="mt-3">投稿詳細</h2>
         <!--いいねボタン-->
-        <p class="pl-5  mt-4"><b><%= render "post_favorite", post: @post %></b></p>
+        <div class="pl-5 mt-4" id="favorite_btn_<%= @post.id %>">
+          <%= render "public/favorite_posts/favorite_btn", post: @post %>
+        </div>
       </div>
       <%= render 'public/shared/post_show', post: @post %>
       <% if @post.end_user == current_end_user %>
