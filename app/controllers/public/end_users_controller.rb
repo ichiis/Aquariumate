@@ -1,6 +1,6 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
-  before_action :ensure_correct_end_user, only: [:edit, :update]
+  before_action :ensure_correct_end_user, only: [:edit, :update, :favorite_posts]
   before_action :ensure_guest_user, only: [:edit]
 
   def show

@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
     #エラー出なかったら
     #@tag_list = @post.tags.pluck(:tag_name).join(',')
     @post_and_tags = @post.tags
-    @post_images = @post.post_images
+    #@post_images = @post.post_images
     @comment = Comment.new
   end
 
@@ -49,6 +49,7 @@ class Public::PostsController < ApplicationController
       @post.save_tags(tag_list)
       redirect_to post_path(@post), alert: "投稿を更新しました"
     else
+      @tag_list = @post.tags.pluck(:tag_name).join(',')
       render "edit"
     end
   end

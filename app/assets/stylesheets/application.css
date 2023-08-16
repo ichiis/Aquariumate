@@ -35,7 +35,7 @@ header{
  .next,.last{
    margin-left:5px;
  }
- 
+ /*投稿詳細の画像表示*/
  .post_edit_form{
    flex-wrap:wrap;
  }
@@ -47,4 +47,9 @@ header{
 .comment_cell{
     vertical-align: top;
     word-break: break-word;
+}
+/*投稿一覧表示のコメント数、画像枚数、いいねボタン*/
+.index-comments-count, .index-images-count, .index-favorites-count
+{
+    font-size: 13px;
 }

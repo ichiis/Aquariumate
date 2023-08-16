@@ -3,6 +3,7 @@
     <tr>
       <td class="text-center">投稿者</td>
       <td>投稿内容</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -15,18 +16,24 @@
         <% end %>
       </td>
       <td class="py-0 col-7">
-        <p><sm><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></sm></p>
+        <p><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></p>
         <p><%= link_to post.title,post, class: "post_#{post.id}" %></p>
-          <!--タグ-->
-        <span><% post.tags.each do |tag| %></span>
-                <i class="fa-sharp fa-solid fa-tag"></i>
-                <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
-              <% end %></br>
-        <p><sm><span id="comment_count"><%= post.comments.count %></span>コメント, 
-               <%= post.favorite_posts.count %> いいね, 
-               画像 <%= post.images.attached? ? post.images.count : 0 %> 枚
-        </sm></p>
+        <!--タグ-->
+        <span>
+          <% post.tags.each do |tag| %>
+            <i class="fa-sharp fa-solid fa-tag"></i>
+            <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
+          <% end %>
+        </span><br/>
+        <span class="index-comments-count" id="comment_count"><%= post.comments.count %>コメント</span>, 
+        <span class="index-images-count">画像 <%= post.images.attached? ? post.images.count : 0 %> 枚,</span>
+        <span class="index-favorites-count" id="favorite_btn_<%= post.id %>" >
+          <%= render "public/favorite_posts/favorite_btn", post: post %>
+        </span>
       </td>
+      <!--<td id="favorite_btn_<%#= post.id %>" >-->
+      <!--  <%#= render "public/favorite_posts/favorite_btn", post: post %>-->
+      <!--</td>-->
     </tr>
     <% end %>
   </tbody>

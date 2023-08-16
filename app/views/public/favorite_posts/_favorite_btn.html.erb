@@ -1,11 +1,11 @@
 <% if post.post_favorited_by?(current_end_user) %>
   <%= link_to post_favorite_posts_path(post), method: :delete, remote: true, data: {"turbolinks" => false} do %>
-    <p style="color: red;"><b><i class="fas fa-heart" aria-hidden="true"></i>
-    <%= post.favorite_posts.count %></b></p>
+    <span style="color: red;"><b><i class="fas fa-heart" aria-hidden="true"></i>
+    <%= post.favorite_posts.count %></b></span>
   <% end %>
 <% else %>
   <%= link_to post_favorite_posts_path(post), method: :post, remote: true, data: {"turbolinks" => false} do %>
-     <p><b><i class="fas fa-heart" aria-hidden="true"></i>
-    <%= post.favorite_posts.count %></b></p>
+     <span><b><i class="fas fa-heart" aria-hidden="true"></i>
+    <%= post.favorite_posts.count %></b></span>
   <% end %>
 <% end %>

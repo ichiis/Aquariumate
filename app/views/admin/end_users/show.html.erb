@@ -1,10 +1,10 @@
 <div class="container">
-  <div>
-    <h4 class=class="mb-4 text-center"><%= @end_user.name %>さんのユーザー詳細</h4>
+  <div class="mt-2">
+    <h4 class="mb-3"><%= @end_user.name %>さんのユーザー詳細</h4>
     <%= flash[:alert] %>
-      <table class="table table-bordered col-8">
+      <table class="table table-bordered col-xs-10 col-sm-8">
         <tr>
-          <td class="col-4">会員ID</td>
+          <td class="">会員ID</td>
         　<td><%= @end_user.id %></td>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
         <% if @end_user.email != "guest@example.com" %>
           <%= link_to "編集", edit_admin_end_user_path(params[:id]), class: "btn btn-success" %> 
         <% else %>
-          <p>ゲストユーザー情報はへんこうできません</p>
+          <p>ゲストユーザーの情報は変更できません</p>
         <% end %>
       </div>
   </div>
