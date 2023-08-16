@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :index, :destroy] do
       resources :comments, only: [:destroy]
     end
-    #resources :post_images, only: [:show, :index, :destroy]
     resources :tags, only: [:index, :destroy]
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
       resource :favorite_posts, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    #resources :post_images
     resources :tags
     #resources :favorite_post_images
     resources :post_and_tags

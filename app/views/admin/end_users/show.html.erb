@@ -1,7 +1,7 @@
-<%= flash[:notice] %>
 <div class="container">
   <div>
     <h4 class=class="mb-4 text-center"><%= @end_user.name %>さんのユーザー詳細</h4>
+    <%= flash[:alert] %>
       <table class="table table-bordered col-8">
         <tr>
           <td class="col-4">会員ID</td>
@@ -26,8 +26,11 @@
       </table>
        
       <div>
-        <%= link_to "編集", edit_admin_end_user_path(params[:id]), class: "btn btn-success" %> 
-        <!--<= link_to "注文履歴一覧を見る", admin_top_path, class: "btn btn-primary" %>-->
+        <% if @end_user.email != "guest@example.com" %>
+          <%= link_to "編集", edit_admin_end_user_path(params[:id]), class: "btn btn-success" %> 
+        <% else %>
+          <p>ゲストユーザー情報はへんこうできません</p>
+        <% end %>
       </div>
   </div>
 </div>

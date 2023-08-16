@@ -24,13 +24,11 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
     tag_list = params[:post][:tag_name].split(',')
-
     if @post.save
       @post.save_tags(tag_list)
       redirect_to post_path(@post), alert: "投稿が成功しました"
     else
-      @post = Post.new
-      render 'new'
+      render 'public/posts/new'
     end
   end
 
