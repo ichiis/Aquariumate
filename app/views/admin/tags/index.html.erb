@@ -1,0 +1,29 @@
+<div class="container" >
+  <div class="row">
+    <div class="col-xs-10 col-sm-6 mx-auto">
+      <p><%= flash[:alert] %></p>
+      <h2>タグ一覧</h2>
+        <table class="table table-border">
+          <thead>
+            <tr>
+              <th>タグ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @tags.each do |tag| %>
+            <tr>
+              <td class="align-middle"><%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id) %></td>
+              <td class="text-center">
+                <%= link_to "削除", admin_tag_path(tag.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にタグを削除しますか?" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <%= paginate @tags %>
+        </div>
+    </div>
+  </div>
+</div>

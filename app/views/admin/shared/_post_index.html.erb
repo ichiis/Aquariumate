@@ -23,6 +23,11 @@
           <%= post.title %>
         <% end %></p>
         <p><%= post.body %></p>
+        <span><% post.tags.each do |tag| %>
+                <i class="fa-sharp fa-solid fa-tag"></i>
+                <%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id) %>
+              <% end %>
+        </span></br>
         <p><sm><%= post.comments.count %>コメント, 
                <%= post.favorite_posts.count %> いいね, 
                画像 <%= post.images.attached? ? post.images.count : 0 %> 枚
@@ -32,4 +37,3 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate posts %>

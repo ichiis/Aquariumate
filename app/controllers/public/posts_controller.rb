@@ -8,15 +8,16 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @tag_list = @post.tags.pluck(:tag_name).join(',')
+    #エラー出なかったら
+    #@tag_list = @post.tags.pluck(:tag_name).join(',')
     @post_and_tags = @post.tags
     @post_images = @post.post_images
     @comment = Comment.new
   end
 
   def index
-    @posts = Post.page(params[:page]).per(10)
     @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
+    @tag_list = Tag.all
   end
 
   def create
@@ -58,6 +59,15 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+  
+  #タグ検索
+  def search_tag
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.order(created_at: :desc)
+    @page = @posts.page(params[:page]).per(10)
+  end
+
 
   private
 

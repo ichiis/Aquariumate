@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     #resources :post_images, only: [:show, :index, :destroy]
     resources :tags, only: [:index, :destroy]
     get 'search'=> 'searches#search'
+    get "search_tag" => "posts#search_tag"
   end
   #end_user用パス
   scope module: :public do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       end
     end
     get 'search'=> 'searches#search'
+    get "search_tag" => "posts#search_tag"
   end
   #ゲストログイン用パス
   devise_scope :end_user do

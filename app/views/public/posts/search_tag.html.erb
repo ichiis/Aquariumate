@@ -1,0 +1,5 @@
+<div class="container">
+  <h2> <i class="fa-sharp fa-solid fa-tag"></i><%= @tag.tag_name %> 一覧</h2>
+  <%= render 'public/shared/post_index', posts: @posts %>
+  <%= paginate @page %>
+</div>

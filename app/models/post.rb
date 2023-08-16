@@ -26,12 +26,10 @@ class Post < ApplicationRecord
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
-
     # 古いタグを消す
     old_tags.each do |old_name|
       self.tags.delete Tag.find_by(tag_name:old_name)
     end
-
     # 新しいタグを保存
     new_tags.each do |new_name|
       tag = Tag.find_or_create_by(tag_name:new_name)
@@ -39,11 +37,11 @@ class Post < ApplicationRecord
     end
   end
 
-  #検索方法　部分一致
+  #キーワード検索（部分一致）
   def self.search_for(word)
     Post.where("body LIKE?","%#{word}%")
   end
-    
+  
   private
   #画像の枚数制限
   def images_length

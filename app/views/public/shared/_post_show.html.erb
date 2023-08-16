@@ -21,7 +21,7 @@
     <td>
       <% @post_and_tags.each do |tag| %>
       <i class="fa-sharp fa-solid fa-tag"></i>
-      <%= tag.tag_name %>
+      <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
       <% end %>
     </td>
   </tr>
