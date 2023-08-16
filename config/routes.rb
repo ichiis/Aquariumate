@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :destroy]
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
+    get "comments"=> "comments#comments_all"
   end
   #end_user用パス
   scope module: :public do

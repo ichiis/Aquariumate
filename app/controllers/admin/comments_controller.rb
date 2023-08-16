@@ -3,4 +3,8 @@ class Admin::CommentsController < ApplicationController
     Comment.find(params[:id]).destroy
     redirect_to request.referer
   end
+
+  def comments_all
+    @comments = Comment.all.order(created_at: :desc) 
+  end
 end
