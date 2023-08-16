@@ -12,9 +12,13 @@
   </head>
 
   <body>
-    <header><%= render 'layouts/header', end_user: current_end_user %></header>
-
-    <main><%= yield %></main>
+    <header>
+      <div><%= render 'layouts/header', end_user: current_end_user %></div>
+    </header>
+    <div class="search"><%= render 'layouts/search_form', end_user: current_end_user %></div>
+    <main>
+      <%= yield %>
+    </main>
 
     <footer></footer>
   </body>

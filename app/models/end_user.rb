@@ -26,4 +26,9 @@ class EndUser < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
+  
+  #検索方法　部分一致
+  def self.search_for(word)
+    EndUser.where('name LIKE ?', '%'+word+'%')
+  end
 end

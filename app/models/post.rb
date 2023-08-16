@@ -39,6 +39,11 @@ class Post < ApplicationRecord
     end
   end
 
+  #検索方法　部分一致
+  def self.search_for(word)
+    Post.where("body LIKE?","%#{word}%")
+  end
+    
   private
   #画像の枚数制限
   def images_length

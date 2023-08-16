@@ -1,0 +1,20 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th class="col-1">ID</th>
+      <th class="col-3">プロフィール画像</th>
+      <th>ユーザー名</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% end_users.each do |end_user| %>
+    <tr>
+      <td><%= end_user.id %></td>
+      <td><%= image_tag end_user.get_profile_image, size: '50x50' %></td>
+      <td><%= link_to admin_end_user_path(end_user.id) do %><%= end_user.name %><% end %></td>
+      <td class= "<%= end_user.is_deleted ? 'text-secondary' : 'text-success' %>"><%= end_user.is_deleted ? '退会済み' : '有効' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
