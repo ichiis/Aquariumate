@@ -4,6 +4,10 @@ header{
   border-bottom: 1px solid black;
   margin-bottom: 20px;
 }
+footer{
+  height:100px;
+  border-top:solid 1px black;
+}
 .top_image{
   background-image: url(../images/Aquariumate.jpg);
   width:400px;
@@ -31,6 +35,11 @@ header{
  /*投稿詳細の画像表示*/
  .post_edit_form{
    flex-wrap:wrap;
+ }
+ /*コメントフォームの折りたたみ*/
+ .comment_summary{
+   font-size:20px;
+   border:solid 1px black;
  }
  /*コメントの投稿日時*/
  .comment_created{

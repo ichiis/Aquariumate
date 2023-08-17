@@ -29,17 +29,14 @@
     </div>
   </div>
   <!--コメントエリア-->
-  <div id="comments_error">
-    <%= render 'public/shared/error_messages', resource: @comment %>
-  </div>
-  <div class="mt-3">
-    <%#= flash[:alert] %>
-  </div>
-  <div class="row">
-    <div class="col-xs-10 col-sm-4 mx-auto mt-3" id="comment-form">
+  <div class="col-xs-10 col-sm-6 mt-3">
+    <div id="comments_error">
+      <%= render 'public/shared/error_messages', resource: @comment %>
+    </div>
+    <div id="comment-form">
       <%= render 'public/comments/comment_form', post: @post, comment: @comment %>
     </div>
-    <div class="col-xs-10 col-sm-7 mx-auto mt-3" id="comment-index">
+    <div class="mt-3" id="comment-index">
       <%= render 'public/comments/comment_index', post: @post, comment: @comment %>
     </div>
   </div>
