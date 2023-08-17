@@ -16,9 +16,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
+development:
   <<: *default
-  database: db/production.sqlite3
+  database: db/development.sqlite3
 
 production:
   <<: *default

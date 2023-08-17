@@ -5,9 +5,11 @@ header{
   margin-bottom: 20px;
 }
 .top_image{
-  background-image: url(../images/aquarium.JPG);
-  background-size: contain;
-  color:white;
+  background-image: url(../images/Aquariumate.jpg);
+  width:400px;
+  height:400px;
+  background-size: cover;
+  background-position: bottom center;
 }
 .search{
   margin-right: 50px;
