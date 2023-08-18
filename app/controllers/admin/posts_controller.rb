@@ -3,7 +3,6 @@ class Admin::PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
-    @post_images = @post.post_images
     @post_and_tags = @post.tags
   end
 

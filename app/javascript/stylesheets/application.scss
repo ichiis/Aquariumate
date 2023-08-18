@@ -64,6 +64,10 @@ main{
    font-size:20px;
    border:solid 1px black;
  }
+  /*タグ一覧の折りたたみ*/
+ .tag_summary{
+   background-color:#a9ceec;
+ }
  /*コメントの投稿日時*/
  .comment_created{
     font-size: 12px;
@@ -73,8 +77,13 @@ main{
     vertical-align: top;
     word-break: break-word;
 }
+// 投稿一覧の投稿内容欄
+.index_main{
+    position:relative;
+}
 /*投稿一覧表示のタグ、コメント数、画像枚数、いいねボタン*/
-.index-comments-count, .index-images-count, .index-favorites-count, .index_tag
-{
+.index_option{
+    position:absolute;
+    bottom:0;
     font-size: 13px;
 }
