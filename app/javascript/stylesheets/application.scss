@@ -77,13 +77,7 @@ main{
     vertical-align: top;
     word-break: break-word;
 }
-// 投稿一覧の投稿内容欄
-.index_main{
-    position:relative;
-}
 /*投稿一覧表示のタグ、コメント数、画像枚数、いいねボタン*/
 .index_option{
-    position:absolute;
-    bottom:0;
     font-size: 13px;
 }

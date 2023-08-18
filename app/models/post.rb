@@ -12,7 +12,7 @@ class Post < ApplicationRecord
      validates :end_user_id
      validates :body
   end
-  validates :body,length:{maximum:300}
+  validates :body,length:{maximum:500}
 
   def post_favorited_by?(end_user)
     favorite_posts.where(end_user_id: end_user.id).exists?

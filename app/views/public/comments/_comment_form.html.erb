@@ -2,7 +2,7 @@
 <details>
   <summary class="comment_summary p-1">コメントする</summary>
     <%= form_with model: [post, comment], local: false do |f| %>
-      <%= f.text_area :comment, id:"post_comment", rows:'5',placeholder: "コメント(200文字以内)", class:"w-100" %></br>
+      <%= f.text_area :comment, id:"post_comment", rows:'7',placeholder: "コメント(200文字以内)", class:"w-100" %></br>
       <%= f.submit "送信" %><span class="count ml-2" id="count_comment">0文字</span>
     <% end %>
 </details>
