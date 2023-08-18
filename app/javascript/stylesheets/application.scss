@@ -1,22 +1,45 @@
 @use '~bootstrap/scss/bootstrap';
 
+.all_contents{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background-color:#a9ceec;
+}
 header{
   border-bottom: 1px solid black;
-  margin-bottom: 20px;
+  background-color:#000080;
 }
 footer{
-  height:100px;
+  height:70px;
   border-top:solid 1px black;
+  background-color:#000080;
+  margin-top:auto;
+}
+main{
+  padding:20px 0 20px 0;
+}
+.header_name{
+  color:white;
+}
+.header-button{
+  justify-content:space-between;
+  padding-right: 10px;
 }
 .top_image{
   background-image: url(../images/Aquariumate.jpg);
-  width:400px;
   height:400px;
   background-size: cover;
   background-position: bottom center;
 }
+.shadow_text{
+  text-shadow:-1px -1px 0 white, -1px 0 0 white, -1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, 1px -1px 0 white, 1px 0 0 white, 1px 1px 0 white;
+}
+.top_text{
+  font-size:18px;
+}
 .search{
-  margin-right: 50px;
+  padding:20px 50px 0px 0;
 }
 /*ログイン画面・新規登録画面*/
 .sign_up-form, .log_in-form{

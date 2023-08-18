@@ -1,5 +1,5 @@
 <!--search-ara-->
-  <div class="row mt-2 justify-content-end">
+  <div class="row justify-content-end">
     <% if admin_signed_in? %>
       <%= form_with url: admin_search_path,method: :get, local: true do |f| %>
         <%= f.text_field :word,placeholder:"ユーザー検索"%>

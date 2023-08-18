@@ -12,14 +12,15 @@
   </head>
 
   <body>
-    <header>
-      <div><%= render 'layouts/header', end_user: current_end_user %></div>
-    </header>
-    <div class="search"><%= render 'layouts/search_form', end_user: current_end_user %></div>
-    <main>
-      <%= yield %>
-    </main>
-
-    <footer></footer>
+    <div class="all_contents">
+      <header>
+        <div><%= render 'layouts/header', end_user: current_end_user %></div>
+      </header>
+      <div class="search"><%= render 'layouts/search_form', end_user: current_end_user %></div>
+      <main>
+        <%= yield %>
+      </main>
+      <footer></footer>
+    </div>
   </body>
 </html>
