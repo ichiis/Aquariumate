@@ -1,4 +1,4 @@
-<table class='table table-inverse'>
+<table class='table'>
   <thead>
     <tr>
       <td class="text-center">投稿者</td>
@@ -9,7 +9,7 @@
   <tbody>
     <% posts.each do |post| %>
     <tr>
-      <td class="text-center col-3">
+      <td class="text-center align-middle col-3">
         <%= link_to(post.end_user) do %>
           <%= image_tag post.end_user.get_profile_image, size:'50x50' %>
           <p class="mt-3"><%= post.end_user.name %></p>
@@ -25,13 +25,13 @@
             <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id), class:"index_tag" %>
           <% end %>
         </span><br/>
-        <span class="index-comments-count" id="comment_count"><%= post.comments.count %>コメント</span>,
+        <span class="index-comments-count" id="comment_count"><%= post.comments.count %>コメント,</span>
         <span class="index-images-count">画像 <%= post.images.attached? ? post.images.count : 0 %> 枚,</span>
         <span class="index-favorites-count" id="favorite_btn_<%= post.id %>" >
           <%= render "public/favorite_posts/favorite_btn", post: post %>
         </span>
       </td>
-      <td><%= link_to "詳細", post_path(post.id) %></td>
+      <td class="text-center align-middle"><%= link_to "詳細", post_path(post.id) %></td>
     </tr>
     <% end %>
   </tbody>

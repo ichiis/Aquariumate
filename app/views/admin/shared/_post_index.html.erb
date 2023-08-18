@@ -5,6 +5,7 @@
       <th class="text-center col-1">投稿日時</th>
       <th class="text-center col-2">ユーザー</th>
       <th>投稿内容</th>
+      <th class="col-2"></th>
     </tr>
   </thead>
   <tbody>
@@ -12,27 +13,25 @@
     <tr>
       <td class="text-center align-middle"><%= post.id %></td>
       <td class="text-center align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></br><%= post.created_at.strftime('%H:%M') %></td>
-      <td class="text-center">
+      <td class="text-center align-middle">
         <%= link_to admin_end_user_path(post.end_user.id) do %>
           <%= image_tag post.end_user.get_profile_image, size:'50x50' %>
           <p class="mt-3"><%= post.end_user.name %></p>
         <% end %>
       </td>
       <td class="pt-1 pb-0">
-        <p><%= link_to admin_post_path(post.id) do %>
-          <%= post.body %>
-        <% end %></p>
-        <p><%= post.body %></p>
-        <span><% post.tags.each do |tag| %>
-                <i class="fa-sharp fa-solid fa-tag"></i>
-                <%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id) %>
-              <% end %>
+        <p class="mb-0 py-1"><%= post.body %></p>
+        <span>
+          <% post.tags.each do |tag| %>
+            <i class="fa-sharp fa-solid fa-tag"></i>
+            <%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id), class:"index_tag" %>
+          <% end %>
         </span></br>
-        <p><sm><%= post.comments.count %>コメント, 
-               <%= post.favorite_posts.count %> いいね, 
-               画像 <%= post.images.attached? ? post.images.count : 0 %> 枚
-        </sm></p>
+        <span class="index-comments-count"><%= post.comments.count %>コメント,</span> 
+        <span class="index-images-count">画像 <%= post.images.attached? ? post.images.count : 0 %> 枚,</span>
+        <span class="index-favorites-count"><%= post.favorite_posts.count %> いいね</span>
       </td>
+      <td class="text-center align-middle"><%= link_to "詳細", admin_post_path(post.id) %></td>
     </tr>
     <% end %>
   </tbody>

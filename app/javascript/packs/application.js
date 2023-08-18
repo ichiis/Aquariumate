@@ -16,3 +16,6 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
+
+require('./count')
+require('./comment_count')

@@ -5,7 +5,7 @@
       <%= image_tag 'logo.png', :size => '160x50' %>
     <% end %>
   </div>
-<!--ようこそ〇〇さん-->
+　<!--ようこそ〇〇さん-->
   <div class="mx-auto my-auto col-4">
     <% if end_user_signed_in? %>
       <p class="my-auto header_name text-right">ようこそ、<%= end_user.name %>さん！</p>
@@ -20,14 +20,14 @@
   <div class="collapse navbar-collapse row " id="navbarSupportedContent">
     <ul class="navbar-nav header-button">
       <% if request.fullpath.include? "/admin" %>
-      <!-- adminがログイン時のヘッダー -->
+      <!-- adminログイン時のヘッダー -->
         <% if admin_signed_in? %>
           <li class="nav-item"><%= link_to "投稿一覧", admin_posts_path, class: "nav-link text-light" %></li>
           <li class="nav-item"><%= link_to "コメント一覧", admin_comments_path, class: "nav-link text-light" %></li>
           <li class="nav-item"><%= link_to "ユーザー一覧", admin_end_users_path, class: "nav-link text-light" %></li>
           <li class="nav-item"><%= link_to "タグ一覧", admin_tags_path, class: "nav-link text-light" %></li>
           <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light" %></li>
-      <!-- adminがログアウト時のヘッダー　-->
+      <!-- adminログアウト時のヘッダー　-->
         <% else %>
           <li class="nav-item"><%= link_to "ログイン", new_admin_session_path, class: "nav-link text-light" %></li>
         <% end %>
