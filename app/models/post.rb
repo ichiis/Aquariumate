@@ -10,10 +10,8 @@ class Post < ApplicationRecord
 
   with_options presence: true do
      validates :end_user_id
-     validates :title
      validates :body
   end
-  validates :title,length:{maximum:50}
   validates :body,length:{maximum:300}
 
   def post_favorited_by?(end_user)

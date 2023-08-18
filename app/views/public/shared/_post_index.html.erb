@@ -17,23 +17,21 @@
       </td>
       <td class="py-0 col-7">
         <p><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></p>
-        <p><%= link_to post.title,post, class: "post_#{post.id}" %></p>
+        <p><%= post.body %></p>
         <!--タグ-->
         <span>
           <% post.tags.each do |tag| %>
             <i class="fa-sharp fa-solid fa-tag"></i>
-            <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
+            <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id), class:"index_tag" %>
           <% end %>
         </span><br/>
-        <span class="index-comments-count" id="comment_count"><%= post.comments.count %>コメント</span>, 
+        <span class="index-comments-count" id="comment_count"><%= post.comments.count %>コメント</span>,
         <span class="index-images-count">画像 <%= post.images.attached? ? post.images.count : 0 %> 枚,</span>
         <span class="index-favorites-count" id="favorite_btn_<%= post.id %>" >
           <%= render "public/favorite_posts/favorite_btn", post: post %>
         </span>
       </td>
-      <!--<td id="favorite_btn_<%#= post.id %>" >-->
-      <!--  <%#= render "public/favorite_posts/favorite_btn", post: post %>-->
-      <!--</td>-->
+      <td><%= link_to "詳細", post_path(post.id) %></td>
     </tr>
     <% end %>
   </tbody>

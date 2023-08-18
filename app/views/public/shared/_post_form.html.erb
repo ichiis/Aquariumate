@@ -1,16 +1,12 @@
 <!--投稿フォーム-->
 <%= form_with model: post, local: true, multipart: true do |f| %>
-  <div class="form-group">
-    <%= f.label :タイトル %>
-    <%= f.text_field :title, class: 'form-control post_title' %>
-  </div>
   <div class="tag_form">
     <label>タグ(,で区切ると複数タグ登録できます)</label>
     <%= f.text_field :tag_name,value: @tag_list, class: 'form-control' %>
   </div>
   <div class="form-group mt-2">
     <%= f.label :本文 %>
-    <%= f.text_area :body, class: 'form-control post_body', rows:"5" %>
+    <%= f.text_area :body, placeholder: "300文字以内", class: 'form-control post_body', rows:"5" %>
   </div>
 
   <div>

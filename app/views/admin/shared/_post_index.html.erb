@@ -20,7 +20,7 @@
       </td>
       <td class="pt-1 pb-0">
         <p><%= link_to admin_post_path(post.id) do %>
-          <%= post.title %>
+          <%= post.body %>
         <% end %></p>
         <p><%= post.body %></p>
         <span><% post.tags.each do |tag| %>
