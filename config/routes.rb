@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     resources :tags
-    #resources :favorite_post_images
     resources :post_and_tags
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
@@ -39,6 +38,7 @@ Rails.application.routes.draw do
     end
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
+    get "images"=> "posts#images"
   end
   #ゲストログイン用パス
   devise_scope :end_user do

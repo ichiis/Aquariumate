@@ -7,7 +7,7 @@ class EndUser < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorite_posts, dependent: :destroy
-  has_many :favorite_post_images, dependent: :destroy
+  has_many :favorite_images, dependent: :destroy
   
   has_one_attached :profile_image
   

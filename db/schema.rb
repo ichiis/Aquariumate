@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 2023_08_11_064041) do
   end
 
   create_table "post_images", force: :cascade do |t|
-    t.integer "end_user_id", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

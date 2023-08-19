@@ -8,8 +8,6 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    #エラー出なかったら
-    #@tag_list = @post.tags.pluck(:tag_name).join(',')
     @post_and_tags = @post.tags
     @comment = Comment.new
   end
@@ -19,6 +17,10 @@ class Public::PostsController < ApplicationController
     @tag_list = Tag.all
   end
 
+  def images
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
+  end
+  
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
