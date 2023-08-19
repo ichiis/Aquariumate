@@ -10,6 +10,10 @@ class Admin::PostsController < ApplicationController
     @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
   end
   
+  def images
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
+  end
+  
   def edit
      @post = Post.find(params[:id])
   end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
     get "comments"=> "comments#comments_all"
+    get "images"=> "posts#images"
   end
   #end_user用パス
   scope module: :public do
@@ -27,8 +28,8 @@ Rails.application.routes.draw do
       resource :favorite_posts, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :tags
-    resources :post_and_tags
+    #resources :tags
+    #resources :post_and_tags
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
     resources :end_users do

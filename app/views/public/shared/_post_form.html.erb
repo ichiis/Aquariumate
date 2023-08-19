@@ -5,7 +5,7 @@
     <%= f.text_field :tag_name,value: @tag_list, class: 'form-control' %>
   </div>
   <div class="form-group mt-2">
-    <%= f.label :本文 %>
+    <%= f.label :本文（必須） %>
     <span class="count" id="count_body">（0文字）</span>
     <%= f.text_area :body, id:"post_text", placeholder: "500文字以内", class: 'form-control post_body', rows:"8" %>
   </div>
