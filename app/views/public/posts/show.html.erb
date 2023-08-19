@@ -34,15 +34,8 @@
         </tr>
       </table>
       
-      <% if @post.end_user == current_end_user %>
-        <div class="mt-3">
-          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-          <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
-        </div>
-      <% end %>
-      
     </div>
-    <div class="col-xs-10 col-sm-5 mx-auto">
+    <div class="col-sm-10 col-md-5 mx-auto">
       <table class="table">
         <tr>
           <th class="text-center">本文</th>
@@ -53,12 +46,22 @@
       </table>
     </div>
   </div>
+  
+    <% if @post.end_user == current_end_user %>
+      <div class="mt-3 mb-3">
+        <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+        <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+      </div>
+    <% end %>
+    
     <!--画像-->
     <div class="">
       <h4 class="mt-3">画像</h4>
       <% if @post.images.attached? %>
         <% @post.images.each do |image| %>
-          <%= image_tag image, size:'180x120' %>
+          <%= link_to image, "data-lightbox": image do %>
+            <%= image_tag image, size:'180x120', class:"img" %>
+          <% end %>
         <% end %>
       <% else %>
         <div>
