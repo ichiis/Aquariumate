@@ -2,11 +2,12 @@ class Admin::EndUsersController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @end_users = EndUser.page(params[:page])
+    @end_users = EndUser.page(params[:page]).per(10)
   end
 
   def show
     @end_user = EndUser.find(params[:id])
+    @posts = @end_user.posts.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def edit

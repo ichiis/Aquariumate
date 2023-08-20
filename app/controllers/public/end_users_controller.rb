@@ -17,7 +17,7 @@ class Public::EndUsersController < ApplicationController
     if @end_user.update(end_user_params)
       redirect_to end_user_path(@end_user), notice: "更新しました"
     else
-      render "edit"
+      render :edit
     end
   end
   
