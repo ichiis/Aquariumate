@@ -5,7 +5,7 @@
     <% @posts.each do |post| %>
       <% post.images.each do |image| %>
         <%= link_to admin_post_path(post.id) do %>
-          <%= image_tag image, size:'180x120' %>
+          <%= image_tag image.variant(resize: '180x180') %>
         <% end %>
       <% end %>
     <% end %>

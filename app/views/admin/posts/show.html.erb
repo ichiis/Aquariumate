@@ -41,7 +41,7 @@
       <h4 class="mt-3">画像</h4>
         <% @post.images.each do |image| %>
           <%= link_to image, "data-lightbox": image do %>
-            <%= image_tag image, size:'180x120' %>
+            <%= image_tag image.variant(resize: '180x180') %>
           <% end %>
         <% end %>
       <% else %>
