@@ -2,8 +2,7 @@
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   	<h1>投稿編集</h1>
     	<%= render 'public/shared/error_messages', resource: @post %>
-  		<%= render 'public/shared/post_form', post: @post %>
-  		<%= link_to '詳細', @post, class: "post_#{@post.id}" %> |
-  		<%= link_to '一覧', posts_path, class: "back" %>
+  		<%= render 'public/shared/post_form', post: @post, tag_list: @tag_list %>
+  		<%= link_to '詳細に戻る', @post, class: "post_#{@post.id}" %> 
   </div>
 </div>

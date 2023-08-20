@@ -13,19 +13,21 @@
   <div>
     <%= f.label :画像 %><span>(6枚まで)</span><br/>
     <%= f.file_field :images, multiple: true, accept: "image/*" %>
-    <% if post.images.attached? %>
-    <p>削除する画像にチェックをつけてください</p>
-    <div class="d-flex post_edit_form">
-    <% @post.images.each do |image| %>
-      <div>
-        <%= f.check_box :image_ids, { multiple: true }, image.id, false %>
-        <label for="post_image_ids_<%= image.id %>" > 
-          <%= image_tag image, size: '180x120' %>
-        </label>
+    <% if post.images.blobs.map{|o|o.id}.compact.any? %>
+      <p>削除する画像にチェックをつけてください</p>
+      <div class="d-flex post_edit_form">
+        <% post.images.each do |image| %>
+          <% unless image.blob.new_record? %>
+            <div>
+              <%= f.check_box :image_ids, { multiple: true }, image.id, false %>
+              <label for="post_image_ids_<%= image.id %>" >
+                <%= image_tag image.variant(resize: '180x180') %>
+              </label>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
-    </div>
-  <% end %>
   </div>
 
   <div class="form-group mt-3">
