@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  #admin用認証機能
+  #admin認証機能
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
-  #end_user用認証機能
+  #end_user認証機能
   devise_for :end_users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
-  #end_userルートパス
+  #ルートパス
   root to:'public/homes#top'
   #admin用パス
   namespace :admin do
@@ -17,22 +17,23 @@ Rails.application.routes.draw do
       resources :comments, only: [:destroy]
     end
     resources :tags, only: [:index, :destroy]
+    #ユーザー検索
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
     get "comments"=> "comments#comments_all"
     get "images"=> "posts#images"
   end
+  
   #end_user用パス
   scope module: :public do
     resources :posts do
       resource :favorite_posts, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    #resources :tags
-    #resources :post_and_tags
+    #退会機能(下2行)
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
-    resources :end_users do
+    resources :end_users, only: [:show, :edit, :update] do
       member do
         get :favorite_posts
       end

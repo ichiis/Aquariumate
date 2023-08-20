@@ -3,7 +3,7 @@ class Admin::CommentsController < ApplicationController
   
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: "削除しました"
   end
 
   def comments_all
