@@ -5,15 +5,15 @@
     <%= form_with model: @end_user, local:true do |f| %>
       <%= render 'public/shared/error_messages', resource: @end_user %>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :ユーザー名 %>
         <%= f.text_field :name, autofocus: true, class: "form-control name" %>
       </div>
      <div class="form-group">
-        <%= f.label :image %>
+        <%= f.label :プロフィール画像 %>
         <%= f.file_field :profile_image, class: "form-control-file end_user_image", accept: 'image/*' %>
       </div>
       <div class="form-group">
-        <%= f.label :introduction %>
+        <%= f.label :イントロダクション %>
         <%= f.text_area :introduction, class: "form-control introduction" %>
       </div>
       <div class="form-group">

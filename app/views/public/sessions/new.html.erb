@@ -2,9 +2,8 @@
   <h2>ログイン</h2>
     <div class="form ml-3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
         <%= flash[:alert] %>
-      <div class="field">
+      <div class="field mt-2">
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"log_in-form" %>
       </div>

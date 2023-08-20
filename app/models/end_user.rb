@@ -14,6 +14,8 @@ class EndUser < ApplicationRecord
   validates :name, presence: true
   validates :email, uniqueness: true
   
+  validates :introduction,length:{maximum:50}
+  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |end_user|
       end_user.password = SecureRandom.urlsafe_base64

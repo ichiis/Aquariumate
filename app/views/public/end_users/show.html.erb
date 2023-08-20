@@ -21,15 +21,13 @@
       <div class='row'>
         <% if current_end_user == @end_user %>
           <% if @end_user.email != "guest@example.com" %>
-            <%= link_to edit_end_user_path(@end_user), class: "btn btn-outline-secondary btn-block edit_user_#{@end_user.id}" do %>
-            <i class="fas fa-user-cog"></i>
-            <% end %>
+            <%= link_to "ユーザー情報編集", edit_end_user_path(@end_user), class: "btn btn-primary btn-block edit_user_#{@end_user.id}" %>
           <% end %>
         <% end %>
       </div>
       <div class="mt-3 row">
         <% if current_end_user == @end_user %>
-          <%= link_to "いいねした投稿一覧", favorite_posts_end_user_path(@end_user), class: "btn btn-success btn-block" %>
+          <%= link_to "いいね一覧", favorite_posts_end_user_path(@end_user), class: "btn btn-success btn-block" %>
         <% end %>
       </div>
     </div>

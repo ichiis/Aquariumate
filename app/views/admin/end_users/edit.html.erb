@@ -1,7 +1,7 @@
-<div class="container mb-5 pb-5">
-  <h4 class="d-inline-block mb-4 text-center"><b><%= @end_user.name %></h4>
+<div class="container">
+  <h4 class="mb-4"><%= @end_user.name %>さんのユーザー情報編集</h4>
     <%= render 'admin/shared/error_messages', resource: @end_user %>
-      <table class="table table-borderless col-8">
+      <table class="table table-bordered col-8">
       <%= form_with model: @end_user, url: admin_end_user_path(@end_user), method: :patch do |f| %>
         <tr>
           <td class="col-4">ユーザーID</td>
@@ -9,11 +9,11 @@
         </tr>
         <tr>
           <td><%= f.label "ユーザー名" %></td>
-          <td><%= f.text_field :name, autoforcus: true, autocomplete: "name" %>　</td>
-           </tr>
+          <td><%= f.text_field :name, autoforcus: true, autocomplete: "name", class:"w-100" %></td>
+        </tr>
         <tr>
           <td><%= f.label "メールアドレス" %></td>
-          <td><%= f.text_field :email, autoforcus: true, autocomplete: "email" %></td>
+          <td><%= f.text_field :email, autoforcus: true, autocomplete: "email", class:"w-100" %></td>
         </tr>
         <tr>
           <td><%= f.label "会員ステータス" %></td>
@@ -29,7 +29,7 @@
           </td>
         </tr>
       </table>
-      <div class="pb-5 mb-2">
+      <div>
         <% if @end_user.email != "guest@example.com" %>
           <%= f.submit "更新する", class: "btn btn-success" %>
         <% else %>
