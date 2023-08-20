@@ -14,7 +14,8 @@
       </div>
       <div class="form-group">
         <%= f.label :イントロダクション %>
-        <%= f.text_area :introduction, class: "form-control introduction" %>
+        <%= f.text_area :introduction, id:"user_introduction", placeholder: "50文字以内", class: "form-control introduction" %>
+        <span class="count" id="count_introduction">0文字</span><span>/50文字</span>
       </div>
       <div class="form-group">
         <%= f.label :メールアドレス %>

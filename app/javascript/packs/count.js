@@ -4,9 +4,6 @@ function count (){
   postText.addEventListener("keyup", () => {
    let bodyLength = postText.value.length
    let countBody = document.getElementById('count_body')
-   if (bodyLength > 500){
-     bodyLength = 500
-   }
    countBody.innerHTML = `${bodyLength}文字`
   });
 }

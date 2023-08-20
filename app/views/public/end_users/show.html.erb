@@ -9,12 +9,14 @@
           <td colspan="2" class="text-center"><%= image_tag @end_user.get_profile_image, size:'100x100' %></td>
         </tr>
         <tr>
-          <th>name</th>
-          <th><%= @end_user.name %></th>
+          <th>ユーザー名</th>
+          <td><%= @end_user.name %></td>
         </tr>
         <tr>
-          <th>introduction</th>
-          <th><%= @end_user.introduction %></th>
+          <td colspan="2">
+            <b>イントロダクション</b><br/>
+            <%=safe_join(@end_user.introduction.split("\n"),tag(:br))%>
+          </td>
         </tr>
       </table>
       <!--ユーザー情報編集ボタンの表示条件-->

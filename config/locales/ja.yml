@@ -10,6 +10,7 @@ ja:
         email: メールアドレス
         profile_image: プロフィール画像
         password: パスワード
+        introduction: イントロダクション
       post: 
         title: タイトル
         body: 本文

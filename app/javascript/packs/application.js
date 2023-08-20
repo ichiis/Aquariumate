@@ -19,3 +19,4 @@ import "../stylesheets/application";
 
 require('./count')
 require('./comment_count')
+require('./introduction_count')
