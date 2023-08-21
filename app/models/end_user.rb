@@ -30,6 +30,6 @@ class EndUser < ApplicationRecord
   
   #検索方法　部分一致
   def self.search_for(word)
-    EndUser.where('name LIKE ?', '%'+word+'%')
+    EndUser.where(['name LIKE ? OR email Like ?', '%'+word+'%', '%'+word+'%'])
   end
 end
