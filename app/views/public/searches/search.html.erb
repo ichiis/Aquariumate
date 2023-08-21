@@ -8,7 +8,7 @@
           </div>
         <% end %>
         <!--ここから一覧-->
-        <%= render 'public/shared/post_index', posts: @records %>
-        <%= paginate @page %>
+        <%= render 'public/shared/post_index', posts: @records_view %>
+        <%= paginate @records_view %>
   </div>
 </div>

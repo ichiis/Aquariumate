@@ -15,7 +15,11 @@
         <tr>
           <td colspan="2">
             <b>イントロダクション</b><br/>
-            <%=safe_join(@end_user.introduction.split("\n"),tag(:br))%>
+            <%if @end_user.introduction.nil? %>
+              <%= @end_user.introduction %>
+            <% else %>
+              <%= safe_join(@end_user.introduction.split("\n"),tag(:br)) %>
+            <% end %>
           </td>
         </tr>
       </table>
@@ -35,7 +39,10 @@
     </div>
     <!--end_user's_post_index-->
     <div class='col-md-8 offset-md-1'>
-      <h2>投稿</h2>
+      <div class="d-flex">
+        <h2>投稿</h2>
+        <span class="ml-3 mt-2">(全<%= @end_user.posts.count %>件)</span>
+      </div>
       <%= render 'public/shared/post_index',posts: @posts %>
       <%= paginate @posts %>
     </div>

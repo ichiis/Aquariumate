@@ -8,5 +8,6 @@ class Admin::CommentsController < ApplicationController
 
   def comments_all
     @comments = Comment.all.order(created_at: :desc) 
+    @comments = Kaminari.paginate_array(@comments).page(params[:page]).per(20)
   end
 end

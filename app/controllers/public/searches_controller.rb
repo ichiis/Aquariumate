@@ -4,7 +4,8 @@ class Public::SearchesController < ApplicationController
   def search
     @word = params[:word]
     @records = Post.search_for(@word)
-    @page = @records.page(params[:page]).per(10)
+    @records_view = @records.reverse
+    @records_view = Kaminari.paginate_array(@records_view).page(params[:page]).per(10)
   end
   
 end
