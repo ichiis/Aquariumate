@@ -1,4 +1,5 @@
 <div class="col-10 mx-auto">
   <h2>いいね一覧</h2>
-  <%= render 'public/shared/post_index', posts: @favorite_posts %>
+  <%= render 'public/shared/post_index', posts: @favorite_view %>
+  <%= paginate @favorite_view %>
 </div>

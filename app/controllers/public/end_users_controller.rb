@@ -35,6 +35,8 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     favorite_posts= FavoritePost.where(end_user_id: @end_user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorite_posts)
+    @favorite_view = @favorite_posts.reverse
+    @favorite_view = Kaminari.paginate_array(@favorite_view).page(params[:page]).per(10)
   end
 
   private
