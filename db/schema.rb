@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_11_064041) do
+ActiveRecord::Schema.define(version: 2023_08_08_125349) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,13 +75,6 @@ ActiveRecord::Schema.define(version: 2023_08_11_064041) do
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
-  create_table "favorite_images", force: :cascade do |t|
-    t.integer "end_user_id", null: false
-    t.integer "image_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "favorite_posts", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "post_id", null: false
@@ -92,12 +85,6 @@ ActiveRecord::Schema.define(version: 2023_08_11_064041) do
   create_table "post_and_tags", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "tag_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "post_images", force: :cascade do |t|
-    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
