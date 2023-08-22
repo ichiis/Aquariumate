@@ -6,6 +6,13 @@
     <div class="pl-5 mt-4" id="favorite_btn_<%= @post.id %>">
       <%= render "public/favorite_posts/favorite_btn", post: @post %>
     </div>
+    <!--編集・削除リンク-->
+     <% if @post.end_user == current_end_user %>
+      <div class="pl-5 mt-4">
+        <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+        <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+      </div>
+    <% end %>
   </div>
   <div class='row'>
     <div class="col-sm-10 col-md-5 mx-auto">
@@ -14,7 +21,7 @@
           <td class=" col-3">投稿者</td>
           <td>
             <%= link_to(@post.end_user) do %>
-              <%= image_tag @post.end_user.get_profile_image, size:"100x100" %><br>
+              <%= image_tag @post.end_user.get_profile_image, size:"80x80" %><br>
               <%= @post.end_user.name %>
             <% end %>
           </td>
@@ -33,12 +40,11 @@
           </td>
         </tr>
       </table>
-      
     </div>
     <div class="col-sm-10 col-md-5 mx-auto">
       <table class="table">
         <tr>
-          <th class="text-center">本文</th>
+          <th>本文</th>
         </tr>
         <tr>
           <td><%= safe_join(@post.body.split("\n"),tag(:br)) %></td>
@@ -46,31 +52,20 @@
       </table>
     </div>
   </div>
-  
-    <% if @post.end_user == current_end_user %>
-      <div class="mt-3 mb-3">
-        <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-        <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
-      </div>
-    <% end %>
-    
-    <!--画像-->
-    <div class="">
-      <h4 class="mt-3">画像</h4>
-      <% if @post.images.attached? %>
-        <% @post.images.each do |image| %>
-          <%= link_to image, "data-lightbox": image do %>
-            <%= image_tag image.variant(resize: '180x'), class:"img" %>
-          <% end %>
+  <!--画像-->
+  <div>
+    <% if @post.images.attached? %>
+    <h4 class="mt-3">画像</h4>
+      <% @post.images.each do |image| %>
+        <%= link_to image, "data-lightbox": image do %>
+          <%= image_tag image.variant(resize: '180x180'), class:"img" %>
         <% end %>
-      <% else %>
-        <div>
-          <p>画像はありません</p>
-        </div>
       <% end %>
-    </div>
-  <!--コメントエリア-->
-  <div class="col-sm-10 col-md-5 mt-5">
+    <% else %>
+    <% end %>
+  </div>
+  <!--コメント-->
+  <div class="col-sm-10 col-md-6 mt-5">
     <div id="comments_error">
       <%= render 'public/shared/error_messages', resource: @comment %>
     </div>

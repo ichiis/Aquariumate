@@ -2,13 +2,13 @@
   <!--ロゴ--> 
   <div>
     <%= link_to root_path do %>
-      <%= image_tag 'logo.png', :size => '160x50' %>
+      <%= image_tag 'logo.png', :size => '170x50' %>
     <% end %>
   </div>
-　<!--ようこそ〇〇さん-->
+　<!--ようこそ-->
   <div class="mx-auto my-auto col-4">
     <% if end_user_signed_in? %>
-      <p class="my-auto header_name text-right">ようこそ、<%= end_user.name %>さん！</p>
+      <p class="my-auto header_name text-right"><b>ようこそ、<%= end_user.name %>さん！</b></p>
       <% else %>
     <% end %>
   </div>
