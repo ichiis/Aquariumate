@@ -40,8 +40,9 @@
           <li class="nav-item"><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "nav-link text-light" %></li>
       <!-- end_userログアウト時のヘッダー　-->
         <% else %>
-          <li class="nav-item"><%= link_to "新規登録", new_end_user_registration_path, class: "nav-link text-light" %></li>
+          <li class="nav-item"><%= link_to "ゲストログイン", end_users_guest_sign_in_path, class: "nav-link text-light", method: :post %></li>
           <li class="nav-item"><%= link_to "ログイン", new_end_user_session_path, class: "nav-link text-light" %></li>
+          <li class="nav-item"><%= link_to "新規登録", new_end_user_registration_path, class: "nav-link text-light" %></li>
         <% end %>
        <% end %>
       </ul>

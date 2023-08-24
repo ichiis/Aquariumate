@@ -2,7 +2,8 @@ class Admin::EndUsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @end_users = EndUser.page(params[:page]).per(10)
+    @end_users = EndUser.order(created_at: :desc) 
+    @end_users = Kaminari.paginate_array(@end_users).page(params[:page]).per(10)
   end
 
   def show

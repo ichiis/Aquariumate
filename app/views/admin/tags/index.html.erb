@@ -13,7 +13,7 @@
           <tbody>
             <% @tags.each do |tag| %>
             <tr>
-              <td class="align-middle"><%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id) %></td>
+              <td class="align-middle"><%=link_to tag.tag_name,admin_search_tag_path(tag_id: tag.id) %> <%="(#{tag.posts.count})" %></td>
               <td class="text-center">
                 <%= link_to "削除", admin_tag_path(tag.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にタグを削除しますか?" %>
               </td>

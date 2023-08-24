@@ -18,8 +18,8 @@ class Public::PostsController < ApplicationController
   end
 
   def images
-    #1ページあたり投稿20件分の画像
-    @posts = Post.page(params[:page]).per(20).order(created_at: :desc) 
+    #1ページあたり投稿10件分の画像
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
   end
 
   def create
@@ -67,7 +67,7 @@ class Public::PostsController < ApplicationController
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.order(created_at: :desc)
-    @page = @posts.page(params[:page]).per(10)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
 

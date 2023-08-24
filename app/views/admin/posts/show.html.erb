@@ -57,6 +57,8 @@
           <p>コメントはありません</p>
         </div>
       <% end %>
-    <%= render 'comment', post: @post, comment: @comment %>
+    <div id="comment-destroy">
+      <%= render 'comment', post: @post, comment: @comment %>
+    </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="container">
-  <h2> <i class="fa-sharp fa-solid fa-tag"></i><%= @tag.tag_name %> 一覧</h2>
+  <div class="d-flex">
+    <h2> <i class="fa-sharp fa-solid fa-tag"></i><%= @tag.tag_name %> 一覧</h2>
+    <span class="ml-3 mt-2">(全<%= @tag.posts.count %>件)</span>
+  </div>
   <%= render 'admin/shared/post_index', posts: @posts %>
-  <%= paginate @page %>
+  <%= paginate @posts %>
 </div>

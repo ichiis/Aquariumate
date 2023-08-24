@@ -12,6 +12,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def images
+    #1ページあたり投稿10件分の画像
     @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
   end
 
@@ -28,6 +29,6 @@ class Admin::PostsController < ApplicationController
   def search_tag
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.order(created_at: :desc) 
-    @page = @posts.page(params[:page]).per(10)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 end
