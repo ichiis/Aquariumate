@@ -21,6 +21,7 @@ class Public::CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment)
   end
+
   def ensure_correct_end_user
     @comment = Comment.find(params[:id])
     unless @comment.end_user == current_end_user

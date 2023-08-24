@@ -1,7 +1,7 @@
-<div class="container" >
+<div class="container">
   <div class="row">
     <div class="col-xs-10 col-sm-6 mx-auto">
-      <p><%= flash[:alert] %></p>
+      <p><%= flash[:notice] %></p>
       <h2>タグ一覧</h2>
         <table class="table table-border">
           <thead>
@@ -21,9 +21,7 @@
             <% end %>
           </tbody>
         </table>
-        <div class="pagination">
-          <%= paginate @tags %>
-        </div>
+        <%= paginate @tags %>
     </div>
   </div>
 </div>

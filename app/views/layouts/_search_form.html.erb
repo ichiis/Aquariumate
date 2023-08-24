@@ -1,17 +1,18 @@
-<!--search-ara-->
-  <div class="row justify-content-end">
-    <% if admin_signed_in? %>
-      <%= form_with url: admin_search_path,method: :get, local: true do |f| %>
-        <%= f.text_field :word,placeholder:"ユーザー検索"%>
+<div class="row justify-content-end">
+  <!--管理者はユーザーを検索-->
+  <% if admin_signed_in? %>
+    <%= form_with url: admin_search_path,method: :get, local: true do |f| %>
+      <%= f.text_field :word,placeholder:"ユーザー検索"%>
+      <%= f.submit'検索'%>
+    <% end %>
+  <% else %>
+  <!--ユーザーは投稿を検索-->
+    <% if end_user_signed_in? %>
+      <%= form_with url: search_path,method: :get, local: true do |f| %>
+        <%= f.text_field :word,placeholder:"キーワード検索"%>
         <%= f.submit'検索'%>
       <% end %>
-    <% else %>
-      <!--未ログイン時は非表示-->
-      <% if end_user_signed_in? %>
-        <%= form_with url: search_path,method: :get, local: true do |f| %>
-          <%= f.text_field :word,placeholder:"キーワード検索"%>
-          <%= f.submit'検索'%>
-        <% end %>
-      <% end %>
-    <% end %> 
-  </div>
+    <% end %>
+  <!--未ログイン時は非表示-->
+  <% end %> 
+</div>

@@ -5,9 +5,9 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = EndUser.find(params[:id])
-    @posts = @end_user.posts.page(params[:page]).per(10).order(created_at: :desc)
+    @posts = @end_user.posts.page(params[:page]).per(5).order(created_at: :desc)
   end
-  
+
   def edit
     @end_user = EndUser.find(params[:id])
   end
@@ -20,23 +20,23 @@ class Public::EndUsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def confirm_withdraw
   end
-  
+
   def withdraw
     @end_user = EndUser.find(current_end_user.id)
     @end_user.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end
-  
+
   def favorite_posts
     @end_user = EndUser.find(params[:id])
-    favorite_posts= FavoritePost.where(end_user_id: @end_user.id).pluck(:post_id)
+    favorite_posts = FavoritePost.where(end_user_id: @end_user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorite_posts)
-    @favorite_view = @favorite_posts.reverse
-    @favorite_view = Kaminari.paginate_array(@favorite_view).page(params[:page]).per(10)
+    @favorites = @favorite_posts.reverse
+    @favorites = Kaminari.paginate_array(@favorites).page(params[:page]).per(10)
   end
 
   private
@@ -51,7 +51,7 @@ class Public::EndUsersController < ApplicationController
       redirect_to end_user_path(current_end_user)
     end
   end
-  
+
   def ensure_guest_user
     @end_user = EndUser.find(params[:id])
     if @end_user.email == "guest@example.com"

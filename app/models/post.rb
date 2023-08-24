@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_and_tags
 
   has_many_attached :images
+  #画像の制限
   validate :images_length
 
   with_options presence: true do

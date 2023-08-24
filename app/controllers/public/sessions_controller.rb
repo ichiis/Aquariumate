@@ -2,6 +2,8 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :end_user_state, only: [:create]
+
+  # ゲストログイン設定
   def guest_sign_in
     end_user = EndUser.guest
     sign_in end_user
@@ -25,7 +27,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  
+
     def end_user_state
       @end_user = EndUser.find_by(email: params[:end_user][:email])
       return if !@end_user

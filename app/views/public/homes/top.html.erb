@@ -6,7 +6,7 @@
       <p class="shadow_text top_text top_text_color"><b>訪れた水族館の感想や水族館で撮影した写真をシェアすることができます</b></p>
     </div>
     <div class="btn-wrapper col-xs-10 col-sm-6 mx-auto">
-      <!--ログイン時はボタンを-->
+      <!--ログイン時はボタンを非表示-->
       <% unless end_user_signed_in? %>
       <div>
         <%= link_to 'ゲストログイン', end_users_guest_sign_in_path, class: "btn btn-primary btn-sm btn-block mb-3", method: :post %>

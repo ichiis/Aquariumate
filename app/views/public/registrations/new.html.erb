@@ -8,19 +8,16 @@
         <%= f.label :ユーザー名 %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"sign_up-form" %>
       </div>
-      
       <div class="field mt-3">
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"sign_up-form" %>
       </div>
-
       <div class="field mt-3">
         <%= f.label :パスワード（6文字以上） %>
         <% if @minimum_password_length %>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password", class:"sign_up-form" %>
        </div>
-
       <div class="field mt-3">
         <%= f.label :パスワード（確認用） %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"sign_up-form" %>

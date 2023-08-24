@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <%= flash[:notice] %>
   <div class='row'>
-    <!--end_user_information-->
+    <!--ユーザー情報-->
     <div class='col-md-3'>
       <h2>ユーザー情報</h2>
       <table class='table'>
@@ -24,6 +24,7 @@
         </tr>
       </table>
       <!--ユーザー情報編集ボタンの表示条件-->
+      <!--ログインユーザーが詳細ページを閲覧している場合表示（ゲストユーザーは編集不可）-->
       <div class='row'>
         <% if current_end_user == @end_user %>
           <% if @end_user.email != "guest@example.com" %>
@@ -37,7 +38,7 @@
         <% end %>
       </div>
     </div>
-    <!--end_user's_post_index-->
+    <!--ユーザーの投稿一覧-->
     <div class='col-md-8 offset-md-1'>
       <div class="d-flex">
         <h2>投稿</h2>

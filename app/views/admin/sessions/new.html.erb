@@ -7,12 +7,10 @@
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"log_in-form" %>
       </div>
-
       <div class="field mt-3">
         <%= f.label :パスワード %><br />
         <%= f.password_field :password, autocomplete: "current-password", class:"log_in-form" %>
       </div>
-
       <div class="actions mt-5">
         <%= f.submit "ログイン" %>
        </div>

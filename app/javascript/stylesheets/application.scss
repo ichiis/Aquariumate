@@ -1,29 +1,29 @@
 @use '~bootstrap/scss/bootstrap';
 
 .all_contents{
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color:#eee9e6;
 }
 header{
   border-bottom: 1px solid black;
-  background-color:#17184b;
+  background-color: #17184b;
 }
 footer{
-  height:70px;
-  border-top:solid 1px black;
+  height: 70px;
+  border-top: solid 1px black;
   background-color:#17184b;
-  margin-top:auto;
+  margin-top: auto;
 }
 main{
-  padding:20px 0 20px 0;
+  padding: 20px 0 20px 0;
 }
 .header_name{
-  color:white;
+  color: white;
 }
 .nav-item{
-  justify-content:space-between;
+  justify-content: space-between;
   padding-right: 20px;
 }
 // サーチボックス
@@ -33,48 +33,48 @@ main{
 table, td, th{
   border-bottom: 1px solid black;
 }
-// トップページ---------
+// トップページ
 .top_image{
   background-image: url(../images/Aquariumate.jpg);
-  height:400px;
+  height: 400px;
   background-size: cover;
   background-position: bottom center;
 }
 .shadow_text{
-  text-shadow:-1px -1px 0 white, -1px 0 0 white, -1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, 1px -1px 0 white, 1px 0 0 white, 1px 1px 0 white;
+  text-shadow: -1px -1px 0 white, -1px 0 0 white, -1px 1px 0 white, 0 -1px 0 white, 0 1px 0 white, 1px -1px 0 white, 1px 0 0 white, 1px 1px 0 white;
 }
 .top_text{
-  font-size:18px;
+  font-size: 18px;
 }
 .top_text_color{
-  color:#17184b;
+  color: #17184b;
  }
 /*ログイン画面・新規登録画面*/
 .sign_up-form, .log_in-form{
-  width:300px;
+  width: 300px;
 }
 /*ページネーションバー*/
 .first, .prev{
    margin-right: 5px;
  }
  .page{
-   margin:0 8px;
+   margin: 0 8px;
  }
  .next,.last{
-   margin-left:5px;
+   margin-left: 5px;
  }
  /*投稿詳細の画像表示*/
  .post_edit_form{
-   flex-wrap:wrap;
+   flex-wrap: wrap;
  }
  /*コメントフォームの折りたたみ*/
  .comment_summary{
-   font-size:20px;
-   border:solid 1px black;
+   font-size: 20px;
+   border: solid 1px black;
  }
   /*タグ一覧の折りたたみ*/
  .tag_summary{
-   background-color:#a9ceec;
+   background-color: #a9ceec;
  }
  /*コメントの投稿日時*/
  .comment_created{

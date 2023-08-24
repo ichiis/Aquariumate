@@ -1,3 +1,4 @@
+<!--posts/show,shared/_post_indexで使用-->
 <% if post.post_favorited_by?(current_end_user) %>
   <%= link_to post_favorite_posts_path(post), method: :delete, remote: true, data: {"turbolinks" => false} do %>
     <span style="color: red;"><b><i class="fas fa-heart" aria-hidden="true"></i>

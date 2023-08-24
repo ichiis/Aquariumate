@@ -17,9 +17,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:destroy]
     end
     resources :tags, only: [:index, :destroy]
-    #ユーザー検索
+    #ユーザー検索機能
     get 'search'=> 'searches#search'
     get "search_tag" => "posts#search_tag"
+    #コメント一覧表示
     get "comments"=> "comments#comments_all"
     get "images"=> "posts#images"
   end
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
       resource :favorite_posts, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    #退会機能(下2行)
+    #退会機能
     get  'end_users/confirm_withdraw' => 'end_users#confirm_withdraw'
     patch  'end_users/withdraw' => 'end_users#withdraw'
     resources :end_users, only: [:show, :edit, :update] do

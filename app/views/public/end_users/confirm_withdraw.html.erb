@@ -5,7 +5,6 @@
     投稿・閲覧ができなくなります。<br>
     退会する場合は、「退会する」をクリックしてください。
   </p>
-
   <%= link_to "退会しない", end_user_path(current_end_user.id), class:"btn btn-primary ms-3 mt-4" %>
   <%= link_to "退会する", end_users_withdraw_path, method: :patch, class:"btn btn-danger ms-3 mt-4" %>
 </div>
