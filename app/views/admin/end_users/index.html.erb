@@ -1,4 +1,5 @@
 <div class='container'>
+<%= flash[:notice] %>
   <div>
     <h2>ユーザー一覧</h2>
       <%= render 'admin/shared/end_user_index', end_users: @end_users %>

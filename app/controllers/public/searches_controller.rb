@@ -11,16 +11,15 @@ class Public::SearchesController < ApplicationController
       # and検索
       @posts = Post.all
       positive_words.each do |word|
-        @records =  @posts.where("body LIKE ?", "%#{word}%")
+        @posts =  @posts.where("body LIKE ?", "%#{word}%")
       end
       # マイナス検索
-      negative_words.each {|word| word.slice!(/^-/) }
       negative_words.each do |word|
         next if word.blank?
-        @records =  @posts.where.not("body LIKE ?", "%#{word}%")
+        @posts = @posts.where!("body NOT LIKE ?", "%#{word.delete_prefix('-')}%")
       end
-      @records = @records.reverse
-      @pages = Kaminari.paginate_array(@records).page(params[:page]).per(10)
+      @posts = @posts.order(created_at: :desc) 
+      @pages = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
     else
       redirect_to posts_path, notice:"キーワードを入力してください"
     end
