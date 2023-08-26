@@ -8,8 +8,8 @@ class Public::SearchesController < ApplicationController
       words = params[:word].split(/[[:blank:]]+/).select(&:present?)
       negative_words, positive_words =
       words.partition {|word| word.start_with?("-") }
-      # and検索
       @posts = Post.all
+      # and検索
       positive_words.each do |word|
         @posts =  @posts.where("body LIKE ?", "%#{word}%")
       end
