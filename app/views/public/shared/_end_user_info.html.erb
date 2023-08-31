@@ -1,0 +1,35 @@
+<!--post/indexとend_user/showで-->
+<h2>ユーザー情報</h2>
+<table class='table'>
+  <tr>
+    <td colspan="2" class="text-center"><%= image_tag end_user.get_profile_image, size:'100x100' %></td>
+  </tr>
+  <tr>
+    <td><b>ユーザー名</b></td>
+    <td><%= end_user.name %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <b>イントロダクション</b><br/>
+      <%if end_user.introduction.nil? %>
+        <%= end_user.introduction %>
+      <% else %>
+        <%= safe_join(end_user.introduction.split("\n"),tag(:br)) %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<!--ユーザー情報編集ボタンの表示条件-->
+<!--ログインユーザーが詳細ページを閲覧している場合表示（ゲストユーザーは編集不可）-->
+<div class='row'>
+  <% if current_end_user == end_user %>
+    <% if end_user.email != "guest@example.com" %>
+      <%= link_to "ユーザー情報編集", edit_end_user_path(end_user), class: "btn btn-primary btn-block edit_user_#{end_user.id}" %>
+    <% end %>
+  <% end %>
+</div>
+  <div class="mt-3 row">
+  <% if current_end_user == end_user %>
+    <%= link_to "いいね一覧", favorite_posts_end_user_path(end_user), class: "btn btn-success btn-block mb-3" %>
+  <% end %>
+</div>

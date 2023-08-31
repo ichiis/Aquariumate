@@ -1,21 +1,27 @@
 <div class='container px-5 px-sm-0'>
 <%= flash[:notice] %>
-  <div class="col-11 mx-auto">
-    <div class="d-flex mt-3">
-      <h2>投稿一覧</h2>
-      <h4 class="mt-2 ml-3"><%= link_to "画像一覧", images_path %></h4>
+  <div class="row">
+    <!--ユーザー情報-->
+    <div class="col-3 d-none d-lg-block mt-3" style="height: 100px;">
+      <%= render 'public/shared/end_user_info', end_user: current_end_user %>
     </div>
-    <!--タグ検索-->
-    <details>
-      <summary class="tag_summary p-1">タグ検索</summary>
-        <% @tag_list.each do |tag|%>
-          <i class="fa-sharp fa-solid fa-tag"></i>
-          <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
-          <%="(#{tag.posts.count})" %>
-        <% end %>
-    </details>
-    <!--投稿一覧-->
-    <%= render 'public/shared/post_index', posts: @posts %>
-    <%= paginate @posts %>
+    <div class="col-md-10 col-lg-9 mx-auto">
+      <div class="d-flex mt-3">
+        <h2>投稿一覧</h2>
+        <h4 class="mt-2 ml-3"><%= link_to "画像一覧", images_path %></h4>
+      </div>
+      <!--タグ検索-->
+      <details>
+        <summary class="tag_summary p-1">タグ検索</summary>
+          <% @tag_list.each do |tag|%>
+            <i class="fa-sharp fa-solid fa-tag"></i>
+            <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
+            <%="(#{tag.posts.count})" %>
+          <% end %>
+      </details>
+      <!--投稿一覧-->
+      <%= render 'public/shared/post_index', posts: @posts %>
+      <%= paginate @posts %>
+    </div>
   </div>
 </div>

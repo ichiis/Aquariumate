@@ -1,43 +1,39 @@
-<!--end_users/show, end_users/favorite_posts, posts/index, searches/searchで使用-->
-<table class='table'>
-  <thead>
-    <tr>
-      <td class="text-center">投稿者</td>
-      <td>投稿内容</td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% posts.each do |post| %>
-    <tr>
-      <td class="text-center align-middle col-3">
-        <%= link_to(post.end_user) do %>
-          <%= image_tag post.end_user.get_profile_image, size:'50x50' %>
-          <p class="mt-3"><%= post.end_user.name %></p>
-        <% end %>
-      </td>
-      <td class="py-0 col-7">
-        <span><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></span>
-        <p class="mb-0"><%= post.body.truncate(100) %></p>
-
-        <div class="index_option">
-          <!--タグ-->
-          <span>
-            <b><% post.tags.each do |tag| %>
-                <i class="fa-sharp fa-solid fa-tag"></i>
-                <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
-              <% end %>
-            </b>
-          </span><br>
-          <span id="comment_count"><%= post.comments.count %>コメント,</span>
-          <span>画像 <%= post.images.attached? ? post.images.count : 0 %> 枚,</span>
-          <span id="favorite_btn_<%= post.id %>" >
-            <%= render "public/favorite_posts/favorite_btn", post: post %>
-          </span>
-        </div>
-      </td>
-      <td class="text-center align-middle text-nowrap"><%= link_to "詳細", post_path(post.id) %></td>
-    </tr>
+<% posts.each do |post| %>
+<div class="card border-dark my-2 col-sm-12 col-md-10 mx-auto">
+  <div class="card-body">
+    <div class="d-flex">
+        <span><%= link_to(post.end_user) do %><%= image_tag post.end_user.get_profile_image, size:'30x30' %></span>
+      <span class="mt-3 ml-3"><%= post.end_user.name %></span>
+      <% end %>
+    </div>
+    <%= link_to (post), class:"text-dark" do %>
+    <div>
+      <span><%= post.created_at.strftime('%Y/%m/%d') %>  <%= post.created_at.strftime('%H:%M') %></span>
+      <p class="mb-0"><%= post.body.truncate(100) %></p>
+    </div>
+    <!--画像-->
+    <% if post.images.present? %>
+    <div class="photo_area">
+      <% post.images.each do |image| %>
+        <%= image_tag image, size: "100x50", class:"img" %>
+      <% end %>
+    </div>
     <% end %>
-  </tbody>
-</table>
+    <% end %>
+    <div class="index_option">
+    <!--タグ-->
+      <span>
+        <b><% post.tags.each do |tag| %>
+            <i class="fa-sharp fa-solid fa-tag"></i>
+             <%=link_to tag.tag_name,search_tag_path(tag_id: tag.id) %>
+            <% end %>
+        </b>
+      </span><br>
+      <span id="comment_count"><%= post.comments.count %>コメント,</span>
+      <span id="favorite_btn_<%= post.id %>" >
+        <%= render "public/favorite_posts/favorite_btn", post: post %>
+      </span>
+    </div>
+  </div>
+</div>
+<% end %>
