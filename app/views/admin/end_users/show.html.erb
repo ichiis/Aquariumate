@@ -4,28 +4,28 @@
     <h4><%= @end_user.name %>さんのユーザー詳細</h4>
     <div class="row"> 
       <div class="col-md-10 col-lg-5 mx-auto">
-      <table class="table table-bordered">
-        <tr>
-          <td>会員ID</td>
-        　<td><%= @end_user.id %></td>
-        </tr>
-        <tr>
-          <td>ユーザー名</td>
-          <td><%= @end_user.name %></td>
-        </tr>
-        <tr>
-          <td>イントロダクション</td>
-          <td><%= @end_user.introduction %></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= @end_user.email %></td>
-        </tr>
-        <tr>
-          <td>会員ステータス</td>
-          <td class="<%= @end_user.is_deleted ? 'text-secondary' : 'text-success' %>"><%= @end_user.is_deleted ? '退会済み' : '有効' %></td>
-        </tr>
-      </table>
+        <table class="table table-bordered">
+          <tr>
+            <td>会員ID</td>
+          　<td><%= @end_user.id %></td>
+          </tr>
+          <tr>
+            <td>ユーザー名</td>
+            <td><%= @end_user.name %></td>
+          </tr>
+          <tr>
+            <td>イントロダクション</td>
+            <td><%= @end_user.introduction %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @end_user.email %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td class="<%= @end_user.is_deleted ? 'text-secondary' : 'text-success' %>"><%= @end_user.is_deleted ? '退会済み' : '有効' %></td>
+          </tr>
+        </table>
         <% if @end_user.email != "guest@example.com" %>
           <%= link_to "編集", edit_admin_end_user_path(@end_user), class: "btn btn-success edit_user_#{@end_user.id}" %> 
         <% else %>

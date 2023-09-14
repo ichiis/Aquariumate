@@ -8,18 +8,18 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @post_and_tags = @post.tags
+    @post_tags = @post.tags
     @comment = Comment.new
   end
 
   def index
-    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
     @tag_list = Tag.all
   end
 
   def images
     #1ページあたり投稿10件分の画像
-    @posts = Post.page(params[:page]).per(10).order(created_at: :desc) 
+    @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def create
@@ -69,7 +69,6 @@ class Public::PostsController < ApplicationController
     @posts = @tag.posts.order(created_at: :desc)
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
-
 
   private
 

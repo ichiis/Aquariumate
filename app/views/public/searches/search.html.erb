@@ -7,7 +7,7 @@
           <p>該当する投稿はありません</p>
         </div>
       <% end %>
-      <%= render 'public/shared/post_index', posts: @pages %>
-      <%= paginate @pages %>
+      <%= render 'public/shared/post_index', posts: @result %>
+      <%= paginate @result %>
   </div>
 </div>

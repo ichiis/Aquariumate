@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
   #ルートパス
   root to:'public/homes#top'
+  
   #admin用パス
   namespace :admin do
     resources :end_users, only: [:show, :index, :edit, :update]

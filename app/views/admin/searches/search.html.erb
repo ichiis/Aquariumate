@@ -1,13 +1,13 @@
 <div class='container px-5 px-sm-0'>
   <div class="col-10 mx-auto">
     <h4 style="display:inline"><b>"<%= @word %>"検索結果</b></h4>
-      <h6 style="display:inline;">(全<%= @records.count %>件)</h6>
-        <% if @records.empty? %>
-          <div class="text-center">
-            <p>該当する投稿はありません</p>
-          </div>
-        <% end %>
-        <%= render 'admin/shared/end_user_index', end_users: @pages %>
-        <%= paginate @pages %>
+    <h6 style="display:inline;">(全<%= @records.count %>件)</h6>
+      <% if @records.empty? %>
+        <div class="text-center">
+          <p>該当する投稿はありません</p>
+        </div>
+      <% end %>
+      <%= render 'admin/shared/end_user_index', end_users: @result %>
+      <%= paginate @result %>
   </div>
 </div>
