@@ -19,12 +19,12 @@
           <td><%= f.label "会員ステータス" %></td>
           <td>
             <span>
-              <%= f.radio_button :is_deleted, false, checked: @end_user.is_deleted == false %>
-              <%= f.label :is_deleted, '有効' %>
+              <%= f.radio_button(:is_deleted, false) %>
+              <%= f.label(:is_deleted, "有効", value: "false") %>
             </span>
             <span class="pl-4">
-              <%= f.radio_button :is_deleted, true, checked: @end_user.is_deleted == true %>
-              <%= f.label :is_deleted, '退会' %>
+              <%= f.radio_button(:is_deleted, true) %>
+              <%= f.label(:is_deleted, "退会", value: "true") %>
             </span>
           </td>
         </tr>
