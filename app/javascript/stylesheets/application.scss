@@ -90,12 +90,12 @@ table, td, th{
     font-size: 13px;
 }
 /*投稿一覧の画像表示*/
-.index_img{
+.post_index_img{
     object-fit: cover;
-  }
+}
 /*投稿詳細と投稿画像一覧の画像表示*/
 .post_img{
     object-fit: contain;
     background-color: #ede4e1;
     margin-bottom: 5px;
-  }
+}
