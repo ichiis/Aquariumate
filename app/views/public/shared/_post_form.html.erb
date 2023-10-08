@@ -22,7 +22,7 @@
             <div>
               <%= f.check_box :image_ids, { multiple: true }, image.id, false %>
               <label for="post_image_ids_<%= image.id %>" >
-                <%= image_tag image.variant(resize: '180x180') %>
+                <%= image_tag image, size: "150x150", class:"post_img" %>
               </label>
             </div>
           <% end %>
